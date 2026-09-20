@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فروشگاه آنلاین نُوا — خرید پوشاک، زیبایی و لایف‌استایل لوکس | NOVA</title>
+  <meta name="description" content="فروشگاه آنلاین نُوا؛ مجموعه‌ای دست‌چین از پوشاک دست‌دوز، اکسسوری تمام‌چرم، عطر نیش، و دکوراسیون اسکاندیناوی.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div id="announcement-bar" class="announcement-bar">
+    <div class="container">
+      <div></div>
+      <div class="announcement-center">
+        <span>ارسال اکسپرس <strong>رایگان</strong> برای خریدهای بالای ۳,۰۰۰,۰۰۰ تومان</span>
+        <span style="opacity: 0.5;">|</span>
+        <span>کد تخفیف افتتاحیه: <strong>NOVA10</strong></span>
+      </div>
+      <button class="announcement-dismiss" onclick="dismissAnnouncement()" title="بستن">✕</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Site Header & Mega Menu
+       ========================================================================== -->
+  <!-- Top Announcement Promo Strip -->
+  <div class="top-announcement-strip footer-promo-strip">
+    <div class="top-promo-content">
+      <span>✨ خرید آخر تابستون نُوا با تخفیف‌های جذاب تا ۷۰٪ | ارسال اکسپرس رایگان برای خریدهای بالای ۳,۰۰۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+  <header class="site-header">
+    <!-- Main Top Bar -->
+    <div class="container header-inner">
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle-btn action-btn" onclick="openMobileNav()" title="منوی دسترسی">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo">
+        NOVA <span class="logo-dot"></span>
+      </a>
+
+      <!-- Central Search Bar (روژاشاپ Style) -->
+      <div class="header-search-box">
+        <svg class="header-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input 
+          type="text" 
+          class="header-search-input" 
+          id="header-search-input" 
+          placeholder="جستجوی نام محصول، برند، دسته‌بندی و ..." 
+        >
+      </div>
+
+      <!-- Header Action Buttons (Adjacent & Prominent) -->
+      <div class="header-actions">
+        <!-- User Account Button (Pill Style) -->
+        <a href="account.html" class="header-btn-pill" id="header-user-btn" title="ورود به حساب کاربری">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>ورود / عضویت</span>
+        </a>
+
+        <!-- Shopping Cart Button (Pill Style with Counter) -->
+        <button class="header-btn-pill btn-cart-active" onclick="novaCart.openDrawer()" title="مشاهده سبد خرید">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span>سبد خرید</span>
+          <span class="pill-badge cart-count-badge" style="display: none;">۰</span>
+        </button>
+
+        <!-- Wishlist Icon -->
+        <a href="wishlist.html" class="action-btn" title="علاقه‌مندی‌ها">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <span class="action-badge wishlist-count-badge" style="display: none;">۰</span>
+        </a>
+
+        <!-- Dark / Light Mode Switcher -->
+        <button class="action-btn theme-toggle-btn" onclick="toggleTheme()" title="تغییر تم شب و روز">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Secondary Sub-Navigation Bar -->
+        <div class="header-sub-nav">
+      <div class="container header-sub-inner">
+        <div class="header-sub-main flex items-center gap-lg">
+          <!-- Mega Menu Trigger with Categories -->
+          <div class="nav-item">
+            <button class="category-trigger-btn" aria-label="دسته‌بندی کالاها">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+              <span>دسته‌بندی کالاها</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; opacity:0.8;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            
+            <!-- Mega Menu Dropdown -->
+            <div class="mega-menu">
+              <div class="mega-menu-grid">
+                <div>
+                  <a href="shop.html?category=fashion" class="mega-column-title">مد و پوشاک دست‌دوز ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-01">پالتو پشمی دست‌دوز مینیمال <span class="mega-badge">جدید</span></a>
+                    <a href="product.html?id=nova-09">کت لینن بهاره ژاپنی</a>
+                    <a href="product.html?id=nova-21">پیراهن ماکسی ابریشمی شب</a>
+                    <a href="product.html?id=nova-11">شال ترمه و کشمیر فوق‌سبک</a>
+                    <a href="product.html?id=nova-15">کفش چرم دربی مینیمال</a>
+                    <a href="shop.html?category=fashion" class="mega-view-all">مشاهده همه پوشاک ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=accessories" class="mega-column-title">اکسسوری و چرم طبیعی ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-02">کیف تمام‌چرم توسکانی <span class="mega-badge">پرفروش</span></a>
+                    <a href="product.html?id=nova-05">ساعت کلاسیک استیل ۳۱۶</a>
+                    <a href="product.html?id=nova-06">عینک آفتابی استات دست‌ساز</a>
+                    <a href="product.html?id=nova-18">کیف پول جیبی چرم اسلیم</a>
+                    <a href="product.html?id=nova-20">دستبند النگویی روکش طلا</a>
+                    <a href="shop.html?category=accessories" class="mega-view-all">مشاهده همه اکسسوری‌ها ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=beauty" class="mega-column-title">زیبایی، عطر و مراقبت ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-03">عطر نیش صندل و عنبر <span class="mega-badge">پرفروش</span></a>
+                    <a href="product.html?id=nova-08">سرم آبرسان جلبک و پپتید <span class="mega-badge">ویژه</span></a>
+                    <a href="product.html?id=nova-14">روغن خالص آرگان مراکشی</a>
+                    <a href="product.html?id=nova-19">شمع معطر مومی سویا</a>
+                    <a href="product.html?id=nova-16">ماگ سرامیک استودیویی</a>
+                    <a href="shop.html?category=beauty" class="mega-view-all">مشاهده همه محصولات زیبایی ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=living" class="mega-column-title">خانه، دکور و فناوری ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-04">صندلی استراحت مدرن</a>
+                    <a href="product.html?id=nova-10">چراغ خواب بتنی دیمردار</a>
+                    <a href="product.html?id=nova-13">گلدان سرامیکی زاویه‌دار</a>
+                    <a href="product.html?id=nova-07">اسپیکر سرامیکی های-فای</a>
+                    <a href="product.html?id=nova-12">هدفون نویزکنسلینگ استودیویی</a>
+                    <a href="shop.html?category=living" class="mega-view-all">مشاهده خانه و فناوری ←</a>
+                  </div>
+                </div>
+
+                <!-- Mega Promo Card -->
+                <div class="mega-promo-card">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="کالکشن پاییزه">
+                  <div class="mega-promo-content">
+                    <span class="mega-badge" style="margin-bottom: 0.5rem; display: inline-block;">کالکشن انحصاری ۲۰۲۶</span>
+                    <h4 style="font-size: var(--text-md); font-weight: bold; color: #fff; margin-bottom: 0.5rem;">ظرافت در تار و پود مینیمالیسم</h4>
+                    <a href="collections.html" class="btn btn-accent btn-sm">مشاهده کالکشن</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Links -->
+          <div class="sub-links-list">
+            <a href="index.html">صفحه نخست</a>
+            <a href="shop.html" class="active" style="color: var(--accent); font-weight: bold;">فروشگاه</a>
+            <a href="collections.html">کالکشن‌ها</a>
+            <a href="lookbook.html">لوک‌بوک</a>
+            <a href="brands.html">طراحان</a>
+            <a href="index.html#flash-deals" class="nav-flash-deal">🔥 حراج شگفت‌انگیز</a>
+            <a href="blog.html">مجله استایل</a>
+            <a href="about.html">درباره ما</a>
+            <a href="contact.html">تماس</a>
+          </div>
+        </div>
+
+        <div class="sub-nav-actions flex items-center gap-md">
+          <a href="gift-card.html" class="sub-nav-action-link" title="خرید و استعلام کارت هدیه نُوا">
+            🎁 کارت هدیه
+          </a>
+          <span class="sub-nav-divider">|</span>
+          <a href="tracking.html" class="sub-nav-action-link tracking-link" title="رهگیری و پیگیری لحظه‌ای سفارش">
+            🔍 پیگیری سفارش
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner & Breadcrumbs -->
+  <div style="background-color: var(--bg-surface-subtle); border-bottom: 1px solid var(--border-color); padding-block: 2.5rem;">
+    <div class="container reveal-fade-up">
+      <div class="breadcrumbs">
+        <a href="index.html">صفحه اصلی</a>
+        <span class="breadcrumb-sep">/</span>
+        <span id="shop-page-breadcrumb" class="current">فروشگاه</span>
+      </div>
+      <h1 id="shop-page-title" style="font-size: var(--text-3xl); margin-top: 0.5rem; margin-bottom: 0.5rem;">فروشگاه آنلاین نُوا — تمامی محصولات</h1>
+      <p id="shop-page-desc" style="color: var(--text-secondary); max-width: 650px;">
+        مجموعه‌ای دست‌چین از پوشاک دست‌دوز، اکسسوری‌های چرم ایتالیایی، عطر نیش، خانه و دکوراسیون مینیمال.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Shop Catalog Section -->
+  <div class="container section-py">
+    <!-- Active Filter Chips -->
+    <div id="active-filters-chips" class="flex flex-wrap gap-xs" style="margin-bottom: 1.5rem;"></div>
+
+    <!-- Shop Layout Grid (Sidebar + Products) -->
+    <div class="shop-layout">
+      <!-- Sidebar Filters -->
+      <aside id="shop-sidebar" class="shop-sidebar reveal-fade-up">
+        <div class="flex justify-between items-center" style="margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color);">
+          <h3 style="font-size: var(--text-md); font-weight: bold;">فیلترهای جستجو</h3>
+          <button id="filter-reset-btn" class="btn btn-ghost btn-sm" style="color: var(--error);">پاک کردن فیلترها</button>
+        </div>
+
+        <!-- Filter: Category -->
+        <div class="filter-widget">
+          <h4 class="filter-title">دسته‌بندی کالا</h4>
+          <div class="filter-list">
+            <label class="filter-checkbox-label">
+              <span><input type="radio" name="cat" value="all" class="filter-category-input" checked> همه دسته‌ها</span>
+              <span style="font-size: 0.75rem; color: var(--text-tertiary);">۲۲</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <span><input type="radio" name="cat" value="fashion" class="filter-category-input"> مد و پوشاک دست‌دوز</span>
+              <span style="font-size: 0.75rem; color: var(--text-tertiary);">۵</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <span><input type="radio" name="cat" value="accessories" class="filter-category-input"> اکسسوری و چرم طبیعی</span>
+              <span style="font-size: 0.75rem; color: var(--text-tertiary);">۵</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <span><input type="radio" name="cat" value="beauty" class="filter-category-input"> عطر نیش و مراقبت پوست</span>
+              <span style="font-size: 0.75rem; color: var(--text-tertiary);">۳</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <span><input type="radio" name="cat" value="living" class="filter-category-input"> خانه و دکوراسیون مدرن</span>
+              <span style="font-size: 0.75rem; color: var(--text-tertiary);">۶</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <span><input type="radio" name="cat" value="tech" class="filter-category-input"> فناوری و ابزار مینیمال</span>
+              <span style="font-size: 0.75rem; color: var(--text-tertiary);">۳</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter: Badge / Status -->
+        <div class="filter-widget">
+          <h4 class="filter-title">برچسب و وضعیت کالا</h4>
+          <div class="filter-list">
+            <label class="filter-checkbox-label">
+              <span><input type="radio" name="badge" value="all" class="filter-badge-input" checked> همه کالاها</span>
+              <span style="font-size: 0.75rem; color: var(--text-tertiary);">۲۲</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <span><input type="radio" name="badge" value="hot" class="filter-badge-input"> 🔥 پرفروش‌ترین‌ها</span>
+              <span style="font-size: 0.75rem; color: var(--text-tertiary);">۶</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <span><input type="radio" name="badge" value="sale" class="filter-badge-input"> 🏷️ حراج و تخفیف ویژه</span>
+              <span style="font-size: 0.75rem; color: var(--text-tertiary);">۵</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <span><input type="radio" name="badge" value="new" class="filter-badge-input"> ✨ کالکشن جدید و تازه‌ها</span>
+              <span style="font-size: 0.75rem; color: var(--text-tertiary);">۴</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter: Price Range Slider -->
+        <div class="filter-widget">
+          <div class="flex justify-between items-center" style="margin-bottom: 0.5rem;">
+            <h4 class="filter-title" style="margin-bottom: 0;">محدوده قیمت</h4>
+            <span id="filter-price-display" style="font-size: var(--text-xs); font-weight: bold; color: var(--accent);">۸,۰۰۰,۰۰۰ تومان</span>
+          </div>
+          <input type="range" id="filter-price-slider" min="400000" max="8000000" step="200000" value="8000000" style="width: 100%; accent-color: var(--accent); cursor: pointer;">
+          <div class="flex justify-between" style="font-size: 0.7rem; color: var(--text-tertiary); margin-top: 0.25rem;">
+            <span>از ۴۰۰ هزار</span>
+            <span>تا ۸ میلیون تومان</span>
+          </div>
+        </div>
+
+        <!-- Filter: Colors -->
+        <div class="filter-widget">
+          <h4 class="filter-title">طیف رنگی</h4>
+          <div class="filter-swatch-list">
+            <button class="filter-swatch-btn" style="background-color: #1A1A1A;" data-color="مشکی" title="مشکی زغالی"></button>
+            <button class="filter-swatch-btn" style="background-color: #D8CAB8;" data-color="شنی طبیعی" title="شنی و کرم"></button>
+            <button class="filter-swatch-btn" style="background-color: #5C4033;" data-color="قهوه‌ای گردویی" title="قهوه‌ای و چوب"></button>
+            <button class="filter-swatch-btn" style="background-color: #E5C158;" data-color="طلایی شامپاینی" title="طلایی و متالیک"></button>
+            <button class="filter-swatch-btn" style="background-color: #556B2F;" data-color="زیتونی خاکی" title="سبز زیتونی"></button>
+            <button class="filter-swatch-btn" style="background-color: #FAF8F5; border: 1px solid #ccc;" data-color="سفید مات کرکی" title="سفید خالص"></button>
+          </div>
+        </div>
+
+        <!-- Filter: Sizes -->
+        <div class="filter-widget">
+          <h4 class="filter-title">سایز کالا</h4>
+          <div class="flex flex-wrap gap-xs">
+            <button class="filter-size-btn" data-size="S">S</button>
+            <button class="filter-size-btn" data-size="M">M</button>
+            <button class="filter-size-btn" data-size="L">L</button>
+            <button class="filter-size-btn" data-size="XL">XL</button>
+            <button class="filter-size-btn" data-size="تک‌سایز">تک‌سایز</button>
+          </div>
+        </div>
+
+        <!-- Filter: In Stock Only -->
+        <div class="filter-widget">
+          <label class="filter-checkbox-label">
+            <span><input type="checkbox" id="filter-stock-only"> فقط کالاهای موجود در انبار</span>
+          </label>
+        </div>
+
+        <!-- Close Sidebar on Mobile -->
+        <button id="shop-sidebar-close" class="btn btn-primary btn-block btn-sm" style="display: none; margin-top: 1rem;">
+          اعمال و مشاهده نتایج
+        </button>
+      </aside>
+
+      <!-- Main Products Content Area -->
+      <div>
+        <!-- Toolbar (Count, Mobile Filter Trigger, Sort, View Modes) -->
+        <div class="shop-toolbar reveal-fade-up">
+          <div class="flex items-center gap-md">
+            <button id="shop-sidebar-toggle" class="btn btn-outline btn-sm shop-filter-toggle-btn" style="display: none;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+              فیلترها
+            </button>
+            <span id="shop-results-count" style="font-size: var(--text-xs); color: var(--text-secondary); font-weight: var(--fw-semibold);">
+              در حال بارگذاری محصولات فروشگاه...
+            </span>
+          </div>
+
+          <div class="flex items-center gap-md">
+            <!-- Sort Selector -->
+            <div class="flex items-center gap-xs">
+              <label for="shop-sort-select" style="font-size: var(--text-xs); color: var(--text-tertiary);">مرتب‌سازی:</label>
+              <select id="shop-sort-select" class="form-select" style="padding: 0.4rem 0.8rem; font-size: var(--text-xs); border-radius: var(--radius-xs);">
+                <option value="featured">پیشنهاد نُوا (پیش‌فرض)</option>
+                <option value="price-asc">ارزان‌ترین</option>
+                <option value="price-desc">گران‌ترین</option>
+                <option value="rating-desc">بیشترین امتیاز</option>
+                <option value="name-asc">نام کالا (الفبا)</option>
+              </select>
+            </div>
+
+            <!-- View Mode Toggles -->
+            <div class="view-mode-btns">
+              <button class="view-mode-btn active" data-mode="grid-4" title="چهار ستونه">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </button>
+              <button class="view-mode-btn" data-mode="grid-2" title="دو ستونه بزرگ">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="3" y="3" width="8" height="18"/><rect x="13" y="3" width="8" height="18"/></svg>
+              </button>
+              <button class="view-mode-btn" data-mode="list" title="نمایش سطری">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty State UI -->
+        <div id="shop-empty-state" style="display: none; text-align: center; padding: 4rem 1rem;">
+          <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;">🔍</div>
+          <h3 style="font-size: var(--text-xl); margin-bottom: 0.5rem;">محصولی با این مشخصات یافت نشد</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">فیلترهای انتخابی را تغییر دهید یا محدوده قیمت را افزایش دهید.</p>
+          <button class="btn btn-outline" onclick="catalogFilters.resetFilters()">حذف کلیه فیلترها</button>
+        </div>
+
+        <!-- Dynamic Product Grid Area -->
+        <div id="shop-product-grid" class="product-grid-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn" aria-label="بازگشت به بالای صفحه" title="بازگشت به بالا" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Master Footer (روژاشاپ Style) -->
+  <footer class="site-footer" style="padding-top: 0; margin-top: 3rem;">
+<div class="footer-newsletter-banner">
+      <div class="container footer-newsletter-flex">
+        <form class="footer-input-group" onsubmit="event.preventDefault(); if(window.showToast) showToast('شماره یا ایمیل شما با موفقیت ثبت شد!', 'success'); this.reset();">
+          <input type="text" class="footer-spacious-input" placeholder="شماره موبایل یا ایمیل خود را جهت دریافت تخفیف‌های ویژه وارد نمایید..." required>
+          <button type="submit" class="footer-submit-btn">ارسال</button>
+        </form>
+        <div class="footer-socials">
+          <span style="font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-inline-end: 0.5rem;">همراه نُوا:</span>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="اینستاگرام" style="color: #fff; border-color: rgba(255,255,255,0.3);">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="تلگرام" style="color: #fff; border-color: rgba(255,255,255,0.3);">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M21.5 2L2 9.5l7 3 2 7.5 4-4.5 5 4L21.5 2z"/></svg>
+          </a>
+        </div>
+        <div style="font-size: var(--text-xs); color: rgba(255,255,255,0.88); line-height: 1.6;">
+          <div>📞 تماس با پشتیبانی: <strong>۰۲۱-۲۲۰۰۳۳۴۴</strong></div>
+          <div style="font-size: 0.72rem; color: rgba(255,255,255,0.65);">شنبه تا چهارشنبه ۹:۰۰ تا ۲۲:۰۰</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top: 3.5rem;">
+      <div class="footer-top footer-top-5col">
+        <div>
+          <h4 class="footer-title" style="color: var(--accent); font-size: 1.15rem; font-family: var(--font-display); letter-spacing: 0;">زیبا بمانید</h4>
+          <p style="font-size: var(--text-xs); line-height: 1.85; color: var(--text-secondary); text-align: justify;">
+            استودیو نُوا (NOVA)؛ مرجع تخصصی پوشاک دست‌دوز، اکسسوری لوکس چرم و عطرهای نیش با استانداردهای اصالت بین‌المللی.
+            <span id="footer-about-more">
+              همراهی شما در این مسیر افتخار ماست. برای هر سفارش، بسته‌بندی ویژه و ارسال اکسپرس در نظر گرفته شده است.
+            </span>
+          </p>
+          <button class="footer-about-toggle-btn" onclick="toggleFooterAbout(this)">نمایش بیشتر ∨</button>
+        </div>
+
+        <div>
+          <h4 class="footer-title">اطلاعات تماس</h4>
+          <div style="font-size: var(--text-xs); color: var(--text-secondary); line-height: 2;">
+            <div>🏢 تهران، میرداماد، جنب مجتمع تجاری میرداماد، ساختمان دیپلمات</div>
+            <div>📍 شوروم نیاوران: تهران، باهنر، پلاک ۴۲</div>
+            <div>✉️ support@nova-studio.ir</div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">راهنمای مشتریان</h4>
+          <div class="footer-links">
+            <a href="size-guide.html">راهنمای جامع سایز</a>
+            <a href="shipping-returns.html">ارسال و بازگشت کالا</a>
+            <a href="tracking.html">رهگیری آنلاین مرسوله</a>
+            <a href="gift-card.html">خرید کارت هدیه نُوا</a>
+            <a href="faq.html">پرسش‌های متداول (FAQ)</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">کالکشن‌ها و برندها</h4>
+          <div class="footer-links">
+            <a href="collections.html">آرشیو همه کالکشن‌ها</a>
+            <a href="lookbook.html">لوک‌بوک تعاملی</a>
+            <a href="brands.html">طراحان و برندها</a>
+            <a href="about.html">درباره استودیو نُوا</a>
+            <a href="contact.html">شوروم‌ها و تماس با ما</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title" style="text-align: center;">نمادهای اعتماد</h4>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+            <div class="trust-badge-card" title="اینماد ۵ ستاره">
+              <span class="trust-badge-icon">🌐</span>
+              <span class="trust-badge-title">اینماد ۵ ستاره</span>
+            </div>
+            <div class="trust-badge-card" title="نشان ملی ساماندهی">
+              <span class="trust-badge-icon">🛡️</span>
+              <span class="trust-badge-title">ساماندهی</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© ۲۰۲۶ استودیو نُوا (NOVA). تمامی حقوق محفوظ است.</div>
+        <div class="flex items-center gap-md">
+          <a href="privacy.html" style="color: var(--text-tertiary);">حریم خصوصی</a>
+          <span>•</span>
+          <a href="terms.html" style="color: var(--text-tertiary);">قوانین و مقررات</a>
+          <span>•</span>
+          <a href="contact.html" style="color: var(--text-tertiary);">تماس با پشتیبانی</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <div class="mobile-bottom-bar">
+    <div class="bar-inner">
+      <a href="index.html" class="mobile-bar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>خانه</span>
+      </a>
+      <a href="shop.html" class="mobile-bar-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>فروشگاه</span>
+      </a>
+      <a href="wishlist.html" class="mobile-bar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        <span>علاقه‌مندی</span>
+      </a>
+      <button class="mobile-bar-link" onclick="novaCart.openDrawer()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span>سبد خرید</span>
+        <span class="action-badge cart-count-badge" style="display: none; top: 2px;">۰</span>
+      </button>
+      <a href="account.html" class="mobile-bar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>حساب من</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">سبد خرید شما <span class="action-badge cart-count-badge" style="position: static;">۰</span></h3>
+      <button class="drawer-close" onclick="novaCart.closeDrawer()">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div class="shipping-progress">
+        <div id="cart-shipping-text" class="shipping-progress-text">تنها <strong>۳,۰۰۰,۰۰۰ تومان</strong> دیگر تا ارسال رایگان!</div>
+        <div class="shipping-progress-track"><div id="cart-shipping-progress" class="shipping-progress-fill" style="width: 0%;"></div></div>
+      </div>
+      <div id="cart-drawer-empty" style="display: none; text-align: center; padding-top: 3rem;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.5;">🛍️</div>
+        <h4>سبد خرید خالی است</h4>
+      </div>
+      <div id="cart-drawer-items"></div>
+    </div>
+    <div id="cart-drawer-footer" class="drawer-footer">
+      <div class="flex items-center justify-between" style="margin-bottom: 1rem;">
+        <span>مبلغ کل:</span>
+        <span id="cart-drawer-subtotal" style="font-size: var(--text-lg); font-weight: 800;">۰ تومان</span>
+      </div>
+      <div class="flex flex-col gap-xs">
+        <a href="checkout.html" class="btn btn-primary btn-block">ثبت نهایی و تسویه حساب</a>
+        <a href="cart.html" class="btn btn-outline btn-block btn-sm">مشاهده سبد خرید و فاکتور</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Nav Drawer -->
+  <div id="mobile-nav-drawer" class="drawer drawer-start">
+    <div class="drawer-header">
+      <span class="brand-logo" style="font-size: 1.4rem;">NOVA</span>
+      <button class="drawer-close" onclick="closeMobileNav()">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div class="flex flex-col gap-md">
+        <a href="index.html" class="nav-link" style="font-size: 1.1rem; font-weight: bold;">صفحه اصلی</a>
+        <a href="shop.html" class="nav-link" style="font-size: 1.1rem; font-weight: bold;">فروشگاه</a>
+        <a href="blog.html" class="nav-link" style="font-size: 1.1rem; font-weight: bold;">ژورنال</a>
+        <a href="about.html" class="nav-link" style="font-size: 1.1rem; font-weight: bold;">درباره ما</a>
+        <a href="contact.html" class="nav-link" style="font-size: 1.1rem; font-weight: bold;">تماس</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 650px; padding: var(--space-xl);">
+      <button class="modal-close-btn" onclick="searchEngine.closeModal()">✕</button>
+      <div style="margin-bottom: 1.5rem;">
+        <span class="section-tag">جستجوی هوشمند نُوا</span>
+        <h3 style="font-size: var(--text-lg); font-weight: bold;">دنبال چه محصولی هستید؟</h3>
+      </div>
+      <input type="text" id="search-modal-input" class="form-input" placeholder="نام محصول یا دسته‌بندی..." style="padding: 1rem; font-size: var(--text-base);">
+      <div id="search-recent-tags" class="flex flex-wrap gap-xs" style="margin-top: 1rem;"></div>
+      <div id="search-live-results" style="display: none; margin-top: 1rem; border: 1px solid var(--border-color); background: var(--bg-surface);"></div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div id="quick-view-modal" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 880px;">
+      <button class="modal-close-btn" onclick="closeQuickView()">✕</button>
+      <div id="quick-view-body"></div>
+    </div>
+  </div>
+
+  <div id="global-overlay" class="overlay-backdrop"></div>
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/filters.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/promo.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

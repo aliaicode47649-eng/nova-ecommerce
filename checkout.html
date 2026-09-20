@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسویه حساب و نهایی‌سازی سفارش | نُوا — NOVA</title>
+  <meta name="description" content="تسویه حساب امن، ثبت آدرس و انتخاب شیوه پرداخت در فروشگاه آنلاین نُوا.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+  <!-- Minimal Checkout Header -->
+  <!-- Top Announcement Promo Strip -->
+  <div class="top-announcement-strip footer-promo-strip">
+    <div class="top-promo-content">
+      <span>✨ خرید آخر تابستون نُوا با تخفیف‌های جذاب تا ۷۰٪ | ارسال اکسپرس رایگان برای خریدهای بالای ۳,۰۰۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner" style="height: 70px;">
+      <a href="index.html" class="brand-logo">NOVA <span class="logo-dot"></span></a>
+      <div class="flex items-center gap-md" style="font-size: var(--text-xs); color: var(--text-secondary);">
+        <span>🔒 پرداخت امن با گواهی SSL ۲۵۶ بیتی</span>
+        <button class="action-btn theme-toggle-btn" onclick="toggleTheme()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-py">
+    <div class="breadcrumbs">
+      <a href="index.html">صفحه اصلی</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="cart.html">سبد خرید</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="current">تسویه حساب و ارسال</span>
+    </div>
+
+    <!-- Checkout Stepper Progress -->
+    <div class="checkout-stepper" style="margin-bottom: 2rem;">
+      <div class="checkout-step completed">
+        <div class="step-num">✓</div>
+        <span class="step-label">سبد خرید</span>
+      </div>
+      <div class="checkout-step-line completed"></div>
+      <div class="checkout-step active">
+        <div class="step-num">۲</div>
+        <span class="step-label">اطلاعات و آدرس</span>
+      </div>
+      <div class="checkout-step-line"></div>
+      <div class="checkout-step">
+        <div class="step-num">۳</div>
+        <span class="step-label">پرداخت و ثبت نهایی</span>
+      </div>
+    </div>
+
+    <div class="checkout-grid grid">
+      <!-- Checkout Form -->
+      <form id="checkout-form" novalidate>
+        <!-- 01: Contact Information -->
+        <div class="reveal-fade-up" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-2xl); margin-bottom: var(--space-xl);">
+          <div class="flex items-center justify-between" style="margin-bottom: 1.25rem;">
+            <h3 style="font-size: var(--text-md); font-weight: bold;">۱. اطلاعات تحویل‌گیرنده</h3>
+            <span style="font-size: var(--text-xs); color: var(--text-tertiary);">دارای حساب هستید؟ <a href="login.html" style="color: var(--accent); text-decoration: underline;">ورود سریع</a></span>
+          </div>
+
+          <div class="grid form-row-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="checkout-name">نام و نام خانوادگی *</label>
+              <input type="text" id="checkout-name" class="form-input" placeholder="مثال: آوا تهرانی" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="checkout-phone">شماره موبایل (جهت هماهنگی تحویل) *</label>
+              <input type="tel" id="checkout-phone" class="form-input" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="checkout-email">آدرس ایمیل (جهت ارسال فاکتور رسمی)</label>
+            <input type="email" id="checkout-email" class="form-input" placeholder="ava.tehrani@example.com">
+          </div>
+        </div>
+
+        <!-- 02: Shipping Address -->
+        <div class="reveal-fade-up delay-1" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-2xl); margin-bottom: var(--space-xl);">
+          <h3 style="font-size: var(--text-md); font-weight: bold; margin-bottom: 1.25rem;">۲. آدرس مقصد</h3>
+
+          <div class="grid form-row-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="checkout-province">استان *</label>
+              <select id="checkout-province" class="form-select" required>
+                <option value="">انتخاب استان...</option>
+                <option value="تهران" selected>تهران</option>
+                <option value="اصفهان">اصفهان</option>
+                <option value="فارس">فارس</option>
+                <option value="خراسان رضوی">خراسان رضوی</option>
+                <option value="آذربایجان شرقی">آذربایجان شرقی</option>
+                <option value="مازندران">مازندران</option>
+                <option value="البرز">البرز</option>
+                <option value="گیلان">گیلان</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="checkout-city">شهر *</label>
+              <input type="text" id="checkout-city" class="form-input" placeholder="مثال: تهران" value="تهران" required>
+            </div>
+          </div>
+
+          <div class="grid checkout-postal-address-row">
+            <div class="form-group">
+              <label class="form-label" for="checkout-postal">کد پستی (۱۰ رقم) *</label>
+              <input type="text" id="checkout-postal" class="form-input" placeholder="۱۹۸۳۷۴۵۶۱۲" maxlength="10" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="checkout-address">نشانی دقیق پستی *</label>
+              <input type="text" id="checkout-address" class="form-input" placeholder="خیابان، کوچه، پلاک، واحد..." required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="checkout-note">توضیحات تکمیلی تحویل (اختیاری)</label>
+            <textarea id="checkout-note" class="form-textarea" rows="2" placeholder="ساعات ترجیحی تحویل یا نکات مربوط به ورود به ساختمان..."></textarea>
+          </div>
+        </div>
+
+        <!-- 03: Delivery Method -->
+        <div class="reveal-fade-up delay-2" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-2xl); margin-bottom: var(--space-xl);">
+          <h3 style="font-size: var(--text-md); font-weight: bold; margin-bottom: 1.25rem;">۳. شیوه ارسال مرسوله</h3>
+
+          <div class="flex flex-col gap-sm">
+            <label class="filter-checkbox-label" style="padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-xs); background: var(--bg-surface-subtle); cursor: pointer;">
+              <span class="flex items-center gap-sm">
+                <input type="radio" name="shipping-method" value="express" checked>
+                <div>
+                  <strong style="display:block; font-size: var(--text-sm);">ارسال اکسپرس اختصاصی نُوا</strong>
+                  <span style="font-size: var(--text-xs); color: var(--text-secondary);">تحویل در همان روز در بسته‌بندی کادویی لوکس استودیو</span>
+                </div>
+              </span>
+              <span style="font-weight: bold; font-size: var(--text-sm); color: var(--accent);">رایگان (خریدهای بالای ۳ میلیون)</span>
+            </label>
+
+            <label class="filter-checkbox-label" style="padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-xs); cursor: pointer;">
+              <span class="flex items-center gap-sm">
+                <input type="radio" name="shipping-method" value="tipax">
+                <div>
+                  <strong style="display:block; font-size: var(--text-sm);">پست پیشتاز / تیپاکس سراسری</strong>
+                  <span style="font-size: var(--text-xs); color: var(--text-secondary);">تحویل ۲ الی ۳ روز کاری برای کلیه شهرستان‌ها</span>
+                </div>
+              </span>
+              <span style="font-weight: bold; font-size: var(--text-sm);">۶۵,۰۰۰ تومان</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 04: Payment Method -->
+        <div class="reveal-fade-up delay-3" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-2xl); margin-bottom: var(--space-xl);">
+          <h3 style="font-size: var(--text-md); font-weight: bold; margin-bottom: 1.25rem;">۴. روش پرداخت</h3>
+
+          <div class="flex flex-col gap-sm">
+            <label class="filter-checkbox-label" style="padding: 1rem; border: 1px solid var(--accent); border-radius: var(--radius-xs); background: var(--bg-surface-subtle); cursor: pointer;">
+              <span class="flex items-center gap-sm">
+                <input type="radio" name="payment-method" value="online" checked>
+                <div>
+                  <strong style="display:block; font-size: var(--text-sm);">درگاه امن اینترنتی شتاب (سامان، پارسیان، ملت)</strong>
+                  <span style="font-size: var(--text-xs); color: var(--text-secondary);">پرداخت آنی با تمامی کارت‌های عضو شبکه شتاب</span>
+                </div>
+              </span>
+              <span class="badge badge-hot">پیشنهادی</span>
+            </label>
+
+            <label class="filter-checkbox-label" style="padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-xs); cursor: pointer;">
+              <span class="flex items-center gap-sm">
+                <input type="radio" name="payment-method" value="card">
+                <div>
+                  <strong style="display:block; font-size: var(--text-sm);">انتقال کارت به کارت بانکی (پایا / ساتنا)</strong>
+                  <span style="font-size: var(--text-xs); color: var(--text-secondary);">ثبت فیش واریزی پس از هماهنگی با واحد مالی</span>
+                </div>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg">
+          تایید اطلاعات و پرداخت نهایی فاکتور
+        </button>
+      </form>
+
+      <!-- Order Summary Sticky Sidebar -->
+      <aside class="order-summary-sidebar reveal-fade-up delay-1">
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-2xl);">
+          <div id="checkout-order-summary"></div>
+          
+          <div style="font-size: 0.75rem; color: var(--text-tertiary); line-height: 1.7; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+            ثبت سفارش به منزله پذیرش کامل <a href="terms.html" style="color: var(--accent); text-decoration: underline;">قوانین و رویه‌های خرید</a> در استودیو نُوا می‌باشد.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn" aria-label="بازگشت به بالای صفحه" title="بازگشت به بالا" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Master Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <div>© ۲۰۲۶ استودیو نُوا (NOVA). تمامی حقوق محفوظ است.</div>
+        <div class="flex items-center gap-md">
+          <a href="index.html">صفحه اصلی</a>
+          <span>•</span>
+          <a href="shop.html">فروشگاه</a>
+          <span>•</span>
+          <a href="contact.html">پشتیبانی</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="global-overlay" class="overlay-backdrop"></div>
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/filters.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/promo.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

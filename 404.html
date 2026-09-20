@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحه مورد نظر یافت نشد (خطای ۴۰۴) | نُوا — NOVA</title>
+  <meta name="description" content="صفحه مورد نظر شما در استودیو نُوا یافت نشد.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Header -->
+  <!-- Top Announcement Promo Strip -->
+  <div class="top-announcement-strip footer-promo-strip">
+    <div class="top-promo-content">
+      <span>✨ خرید آخر تابستون نُوا با تخفیف‌های جذاب تا ۷۰٪ | ارسال اکسپرس رایگان برای خریدهای بالای ۳,۰۰۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">NOVA <span class="logo-dot"></span></a>
+      <div class="flex items-center gap-md">
+        <button class="action-btn theme-toggle-btn" onclick="toggleTheme()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 404 Stage -->
+  <main class="container section-py" style="flex: 1; display: flex; align-items: center; justify-content: center; text-align: center;">
+    <div class="reveal-scale-in" style="max-width: 620px;">
+      <div style="font-family: var(--font-display); font-size: clamp(6rem, 12vw, 11rem); font-weight: 900; line-height: 1; color: var(--text-primary); letter-spacing: -0.04em; opacity: 0.15; margin-bottom: -1.5rem;">
+        ۴۰۴
+      </div>
+      <span class="section-tag">مسیر نامشخص</span>
+      <h1 style="font-size: var(--text-3xl); font-weight: bold; margin-top: 0.5rem; margin-bottom: 1rem;">
+        به نظر می‌رسد از مسیر اصلی فاصله گرفته‌اید.
+      </h1>
+      <p style="color: var(--text-secondary); line-height: var(--lh-relaxed); margin-bottom: 2rem;">
+        صفحه‌ای که به دنبال آن بودید ممکن است تغییر نام یافته، حذف شده یا آدرس آن به اشتباه وارد شده باشد.
+      </p>
+
+      <div class="flex justify-center items-center gap-md flex-wrap">
+        <a href="shop.html" class="btn btn-primary btn-lg">بازگشت به فروشگاه</a>
+        <a href="index.html" class="btn btn-outline btn-lg">صفحه اصلی وب‌سایت</a>
+      </div>
+
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+        <span style="font-size: var(--text-xs); color: var(--text-tertiary); display: block; margin-bottom: 0.75rem;">یا مستقیماً کالای مورد نظر را جستجو کنید:</span>
+        <div class="flex justify-center">
+          <button class="btn btn-secondary btn-sm" onclick="searchEngine.openModal()" style="gap: 0.5rem;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            باز کردن پنجره جستجوی هوشمند
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
+    <div class="container text-center" style="text-align: center; font-size: var(--text-xs); color: var(--text-tertiary);">
+      © ۲۰۲۶ استودیو نُوا (NOVA). تمامی حقوق محفوظ است.
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 650px; padding: var(--space-xl);">
+      <button class="modal-close-btn" onclick="searchEngine.closeModal()">✕</button>
+      <input type="text" id="search-modal-input" class="form-input" placeholder="جستجوی محصول..." style="padding: 1rem;">
+      <div id="search-live-results" style="display: none; margin-top: 1rem; border: 1px solid var(--border-color); background: var(--bg-surface);"></div>
+    </div>
+  </div>
+
+  <div id="global-overlay" class="overlay-backdrop"></div>
+  <div id="toast-container"></div>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/promo.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

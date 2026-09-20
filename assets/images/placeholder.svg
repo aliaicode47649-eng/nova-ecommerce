@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2EFE9" />
+      <stop offset="100%" stop-color="#E5E0D8" />
+    </linearGradient>
+    <radialGradient id="goldGlow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#B08D57" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#B08D57" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1000" fill="url(#bgGrad)" />
+
+  <!-- Ambient Glow -->
+  <circle cx="400" cy="450" r="300" fill="url(#goldGlow)" />
+
+  <!-- Subtle Geometric Frame -->
+  <rect x="60" y="60" width="680" height="880" fill="none" stroke="#D3CCC2" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.7" />
+
+  <!-- Minimal Icon & Wordmark -->
+  <g transform="translate(400, 440)" text-anchor="middle">
+    <!-- Diamond Symbol -->
+    <polygon points="0,-45 40,0 0,45 -40,0" fill="none" stroke="#B08D57" stroke-width="2.5" />
+    <circle cx="0" cy="0" r="8" fill="#B08D57" />
+
+    <!-- Typography -->
+    <text y="90" font-family="'Playfair Display', serif" font-size="34" font-weight="700" letter-spacing="0.25em" fill="#1A1A1A">NOVA</text>
+    <text y="125" font-family="'Vazirmatn', sans-serif" font-size="16" font-weight="400" letter-spacing="0.1em" fill="#7A756D">استودیو دیزاین و محصولات انحصاری</text>
+  </g>
+</svg>

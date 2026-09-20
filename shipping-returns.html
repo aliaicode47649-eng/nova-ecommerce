@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>راهنمای ارسال اکسپرس و ضمانت بازگشت کالا | نُوا — NOVA</title>
+  <meta name="description" content="سیاست شفاف و تضمین‌شده ارسال اکسپرس، تحویل در همان روز، و راهنمای کامل ضمانت بی قید و شرط ۷ روزه بازگشت کالا در استودیو نُوا.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages-extra.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement Strip -->
+  <div class="top-announcement-strip footer-promo-strip">
+    <div class="top-promo-content">
+      <span>✨ ارسال اکسپرس رایگان برای تمامی خریدهای بالای ۳,۰۰۰,۰۰۰ تومان به سراسر کشور با بیمه کامل مرسوله</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="mobile-toggle-btn action-btn" onclick="openMobileNav()" title="منوی دسترسی" aria-label="باز کردن منو">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+
+      <a href="index.html" class="brand-logo">NOVA <span class="logo-dot"></span></a>
+
+      <!-- Search Bar -->
+      <div class="header-search-box">
+        <svg class="header-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input 
+          type="text" 
+          class="header-search-input" 
+          id="header-search-input" 
+          placeholder="جستجوی قوانین ارسال، مرجوعی، کالاها و ..."
+        >
+      </div>
+
+      <!-- Header Action Pills -->
+      <div class="header-actions">
+        <a href="account.html" class="header-btn-pill" title="ورود به حساب کاربری">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>ورود / عضویت</span>
+        </a>
+
+        <button class="header-btn-pill btn-cart-active" onclick="novaCart.openDrawer()" title="سبد خرید">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span>سبد خرید</span>
+          <span class="pill-badge cart-count-badge" style="display:none;">۰</span>
+        </button>
+
+        <a href="wishlist.html" class="action-btn" title="علاقه‌مندی‌ها">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <span class="action-badge wishlist-count-badge" style="display:none;">۰</span>
+        </a>
+
+        <button class="action-btn theme-toggle-btn" onclick="toggleTheme()" title="تغییر تم">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Secondary Sub-Nav Bar -->
+        <div class="header-sub-nav">
+      <div class="container header-sub-inner">
+        <div class="header-sub-main flex items-center gap-lg">
+          <!-- Mega Menu Trigger with Categories -->
+          <div class="nav-item">
+            <button class="category-trigger-btn" aria-label="دسته‌بندی کالاها">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+              <span>دسته‌بندی کالاها</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; opacity:0.8;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            
+            <!-- Mega Menu Dropdown -->
+            <div class="mega-menu">
+              <div class="mega-menu-grid">
+                <div>
+                  <a href="shop.html?category=fashion" class="mega-column-title">مد و پوشاک دست‌دوز ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-01">پالتو پشمی دست‌دوز مینیمال <span class="mega-badge">جدید</span></a>
+                    <a href="product.html?id=nova-09">کت لینن بهاره ژاپنی</a>
+                    <a href="product.html?id=nova-21">پیراهن ماکسی ابریشمی شب</a>
+                    <a href="product.html?id=nova-11">شال ترمه و کشمیر فوق‌سبک</a>
+                    <a href="product.html?id=nova-15">کفش چرم دربی مینیمال</a>
+                    <a href="shop.html?category=fashion" class="mega-view-all">مشاهده همه پوشاک ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=accessories" class="mega-column-title">اکسسوری و چرم طبیعی ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-02">کیف تمام‌چرم توسکانی <span class="mega-badge">پرفروش</span></a>
+                    <a href="product.html?id=nova-05">ساعت کلاسیک استیل ۳۱۶</a>
+                    <a href="product.html?id=nova-06">عینک آفتابی استات دست‌ساز</a>
+                    <a href="product.html?id=nova-18">کیف پول جیبی چرم اسلیم</a>
+                    <a href="product.html?id=nova-20">دستبند النگویی روکش طلا</a>
+                    <a href="shop.html?category=accessories" class="mega-view-all">مشاهده همه اکسسوری‌ها ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=beauty" class="mega-column-title">زیبایی، عطر و مراقبت ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-03">عطر نیش صندل و عنبر <span class="mega-badge">پرفروش</span></a>
+                    <a href="product.html?id=nova-08">سرم آبرسان جلبک و پپتید <span class="mega-badge">ویژه</span></a>
+                    <a href="product.html?id=nova-14">روغن خالص آرگان مراکشی</a>
+                    <a href="product.html?id=nova-19">شمع معطر مومی سویا</a>
+                    <a href="product.html?id=nova-16">ماگ سرامیک استودیویی</a>
+                    <a href="shop.html?category=beauty" class="mega-view-all">مشاهده همه محصولات زیبایی ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=living" class="mega-column-title">خانه، دکور و فناوری ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-04">صندلی استراحت مدرن</a>
+                    <a href="product.html?id=nova-10">چراغ خواب بتنی دیمردار</a>
+                    <a href="product.html?id=nova-13">گلدان سرامیکی زاویه‌دار</a>
+                    <a href="product.html?id=nova-07">اسپیکر سرامیکی های-فای</a>
+                    <a href="product.html?id=nova-12">هدفون نویزکنسلینگ استودیویی</a>
+                    <a href="shop.html?category=living" class="mega-view-all">مشاهده خانه و فناوری ←</a>
+                  </div>
+                </div>
+
+                <!-- Mega Promo Card -->
+                <div class="mega-promo-card">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="کالکشن پاییزه">
+                  <div class="mega-promo-content">
+                    <span class="mega-badge" style="margin-bottom: 0.5rem; display: inline-block;">کالکشن انحصاری ۲۰۲۶</span>
+                    <h4 style="font-size: var(--text-md); font-weight: bold; color: #fff; margin-bottom: 0.5rem;">ظرافت در تار و پود مینیمالیسم</h4>
+                    <a href="collections.html" class="btn btn-accent btn-sm">مشاهده کالکشن</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Links -->
+          <div class="sub-links-list">
+            <a href="index.html" class="active" style="color: var(--accent); font-weight: bold;">صفحه نخست</a>
+            <a href="shop.html">فروشگاه</a>
+            <a href="collections.html">کالکشن‌ها</a>
+            <a href="lookbook.html">لوک‌بوک</a>
+            <a href="brands.html">طراحان</a>
+            <a href="index.html#flash-deals" class="nav-flash-deal">🔥 حراج شگفت‌انگیز</a>
+            <a href="blog.html">مجله استایل</a>
+            <a href="about.html">درباره ما</a>
+            <a href="contact.html">تماس</a>
+          </div>
+        </div>
+
+        <div class="sub-nav-actions flex items-center gap-md">
+          <a href="gift-card.html" class="sub-nav-action-link" title="خرید و استعلام کارت هدیه نُوا">
+            🎁 کارت هدیه
+          </a>
+          <span class="sub-nav-divider">|</span>
+          <a href="tracking.html" class="sub-nav-action-link tracking-link" title="رهگیری و پیگیری لحظه‌ای سفارش">
+            🔍 پیگیری سفارش
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-block: var(--space-2xl) var(--space-4xl);">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="مسیر راهنما">
+      <a href="index.html">خانه</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">ارسال و بازگشت کالا</span>
+    </nav>
+
+    <!-- Shipping Hero -->
+    <div class="editorial-hero reveal-fade-up">
+      <div class="editorial-hero-content">
+        <span class="editorial-eyebrow">Seamless Delivery & Return Guarantee</span>
+        <h1 class="editorial-title">ارسال ممتاز و ضمانت آرامش خاطر در خرید</h1>
+        <p class="editorial-subtitle">
+          در خانه مد نُوا، فرآیند خرید تا لحظه پوشیدن لباس با نهایت دقت و کرامت همراه است. ارسال در جعبه‌های هاردباکس نفیس، پوشش ضد رطوبت و امکان تعویض یا بازگشت بی‌قید و شرط ۷ روزه.
+        </p>
+      </div>
+    </div>
+
+    <!-- Section 1: Shipping Methods Grid -->
+    <section class="reveal-fade-up" style="margin-bottom: var(--space-4xl);">
+      <div class="section-header flex items-center justify-between" style="margin-bottom: var(--space-xl);">
+        <div>
+          <span class="section-tag">شیوه‌های تحویل مرسوله</span>
+          <h2 style="font-size: var(--text-2xl); font-weight: 800; margin-top: 0.35rem;">روش‌ها و تعرفه‌های ارسال نُوا</h2>
+        </div>
+        <div class="text-xs text-secondary">پوشش سراسری ۱۰۰٪ شهرهای ایران</div>
+      </div>
+
+      <div class="grid grid-3 gap-xl">
+        <!-- Method 1: Express Courier -->
+        <div class="card" style="padding: var(--space-2xl); border-top: 3px solid var(--accent); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="badge" style="background: var(--accent); color: #fff;">ویژه تهران</span>
+              <span style="font-size: 1.4rem;">⚡</span>
+            </div>
+            <h3 style="font-size: var(--text-lg); font-weight: 800; margin-top: 1rem;">پیک اختصاصی نُوا (Courier)</h3>
+            <p style="font-size: var(--text-xs); color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.8;">
+              تحویل در همان روز یا انتخاب بازه زمانی دلخواه (صبح یا عصر) با هماهنگی تلفنی سفیر برند نُوا.
+            </p>
+
+            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--bg-surface-subtle); border-radius: var(--radius-xs);">
+              <div class="flex items-center justify-between" style="font-size: var(--text-xs);">
+                <span>زمان تحویل:</span>
+                <strong>کمتر از ۳ ساعت کاری</strong>
+              </div>
+              <div class="flex items-center justify-between" style="font-size: var(--text-xs); margin-top: 0.5rem;">
+                <span>هزینه ارسال:</span>
+                <strong style="color: var(--accent);">رایگان بالای ۳ میلیون</strong>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: var(--space-lg); font-size: 0.72rem; color: var(--text-tertiary);">
+            * سفارش‌های ثبت شده تا ساعت ۱۶ در همان روز تحویل می‌شوند.
+          </div>
+        </div>
+
+        <!-- Method 2: Tipax Express -->
+        <div class="card" style="padding: var(--space-2xl); border-top: 3px solid var(--text-primary); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="badge" style="background: var(--bg-surface-subtle); color: var(--text-primary);">سراسر کشور</span>
+              <span style="font-size: 1.4rem;">✈</span>
+            </div>
+            <h3 style="font-size: var(--text-lg); font-weight: 800; margin-top: 1rem;">تیپاکس اکسپرس هوایی</h3>
+            <p style="font-size: var(--text-xs); color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.8;">
+              ارسال سریع بین‌شهری درب به درب، با بسته‌بندی مقاوم و بیمه کامل خسارت احتمالی تا ارزش ۵۰ میلیون تومان.
+            </p>
+
+            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--bg-surface-subtle); border-radius: var(--radius-xs);">
+              <div class="flex items-center justify-between" style="font-size: var(--text-xs);">
+                <span>زمان تحویل:</span>
+                <strong>۲۴ الی ۴۸ ساعت کاری</strong>
+              </div>
+              <div class="flex items-center justify-between" style="font-size: var(--text-xs); margin-top: 0.5rem;">
+                <span>هزینه ارسال:</span>
+                <strong style="color: var(--accent);">رایگان بالای ۳ میلیون</strong>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: var(--space-lg); font-size: 0.72rem; color: var(--text-tertiary);">
+            * کد رهگیری تیپاکس بلافاصله پس از تحویل به پست پیامک می‌شود.
+          </div>
+        </div>
+
+        <!-- Method 3: In-Store Pickup -->
+        <div class="card" style="padding: var(--space-2xl); border-top: 3px solid #10B981; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">حضوری</span>
+              <span style="font-size: 1.4rem;">🏛</span>
+            </div>
+            <h3 style="font-size: var(--text-lg); font-weight: 800; margin-top: 1rem;">تحویل و پرو در شوروم نُوا</h3>
+            <p style="font-size: var(--text-xs); color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.8;">
+              امکان پرو حضوری در آتلیه الهیه، بررسی متریال، تغییر آنی سایز و تنظیم اختصاصی قد و فیت توسط خیاط استودیو.
+            </p>
+
+            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--bg-surface-subtle); border-radius: var(--radius-xs);">
+              <div class="flex items-center justify-between" style="font-size: var(--text-xs);">
+                <span>زمان تحویل:</span>
+                <strong>آماده‌سازی ظرف ۲ ساعت</strong>
+              </div>
+              <div class="flex items-center justify-between" style="font-size: var(--text-xs); margin-top: 0.5rem;">
+                <span>هزینه خدمات:</span>
+                <strong style="color: #10B981;">همواره رایگان</strong>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: var(--space-lg); font-size: 0.72rem; color: var(--text-tertiary);">
+            * هماهنگی ساعت مراجعه از طریق واتس‌اپ پشتیبانی صورت می‌گیرد.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 5-Step Return Timeline -->
+    <section class="reveal-fade-up" style="background: var(--bg-surface-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-3xl); margin-bottom: var(--space-4xl);">
+      <div style="text-align: center; max-width: 700px; margin-inline: auto; margin-bottom: var(--space-3xl);">
+        <span class="section-tag">ضمانت بازگشت ۷ روزه</span>
+        <h2 style="font-size: var(--text-2xl); font-weight: 800; margin-top: 0.5rem;">مراحل ۵ گانه بازگرداندن یا تعویض کالا</h2>
+        <p style="font-size: var(--text-xs); color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.8;">
+          در صورت عدم تطابق سایز یا عدم رضایت کامل، بدون کوچک‌ترین دغدغه کالا را مرجوع فرمایید.
+        </p>
+      </div>
+
+      <div class="return-steps-timeline" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-xl); position: relative;">
+        <!-- Step 1 -->
+        <div class="step-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-xl); text-align: center;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-inline: auto; margin-bottom: var(--space-md);">۱</div>
+          <h4 style="font-size: var(--text-sm); font-weight: bold;">ثبت درخواست آنلاین</h4>
+          <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.6;">ورود به حساب کاربری و انتخاب گزینه مرجوعی برای سفارش مربوطه.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-xl); text-align: center;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-inline: auto; margin-bottom: var(--space-md);">۲</div>
+          <h4 style="font-size: var(--text-sm); font-weight: bold;">تماس کارشناس</h4>
+          <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.6;">برقراری تماس کارشناس نُوا ظرف حداکثر ۲ ساعت جهت تعیین ساعت جمع‌آوری.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-xl); text-align: center;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-inline: auto; margin-bottom: var(--space-md);">۳</div>
+          <h4 style="font-size: var(--text-sm); font-weight: bold;">دریافت رایگان مرسوله</h4>
+          <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.6;">مراجعه سفیر نُوا درب منزل بدون کسر هیچ‌گونه هزینه ایاب و ذهاب.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-xl); text-align: center;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-inline: auto; margin-bottom: var(--space-md);">۴</div>
+          <h4 style="font-size: var(--text-sm); font-weight: bold;">بررسی کارشناسی آتلیه</h4>
+          <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.6;">تأیید سلامت فیزیکی پارچه، عدم بوی عطر و پایداری شناسنامه هولوگرام‌دار.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-xl); text-align: center;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #10B981; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-inline: auto; margin-bottom: var(--space-md);">۵</div>
+          <h4 style="font-size: var(--text-sm); font-weight: bold;">بازگشت سریع وجه</h4>
+          <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.6;">واریز پایا به شماره شبای خریدار یا شارژ کیف پول با ۵٪ پاداش نقدی مازاد.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Return Policy Rules & Exclusions -->
+    <section class="reveal-fade-up grid grid-2 gap-2xl" style="margin-bottom: var(--space-4xl);">
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-2xl);">
+        <h3 style="font-size: var(--text-lg); font-weight: 800; color: #10B981; display: flex; align-items: center; gap: 0.5rem;">
+          <span>✓</span> شرایط تأیید مرجوعی کالا
+        </h3>
+        <ul style="margin-top: var(--space-lg); font-size: var(--text-xs); color: var(--text-secondary); line-height: 2; list-style-type: disc; padding-inline-start: 1.2rem;">
+          <li>کالا در بسته‌بندی اورجینال، همراه با کیسه پارچه‌ای و تگ‌های اولیه باشد.</li>
+          <li>شناسنامه و هولوگرام اصالت اثر مخدوش یا جدا نشده باشد.</li>
+          <li>پوشاک دارای آثار شست‌وشو، کشیدگی بافت یا بوی ادکلن نباشد.</li>
+          <li>درخواست مرجوعی حداکثر تا ۷ روز پس از تاریخ تحویل ثبت شده باشد.</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-2xl);">
+        <h3 style="font-size: var(--text-lg); font-weight: 800; color: #EF4444; display: flex; align-items: center; gap: 0.5rem;">
+          <span>✕</span> اقلام غیرقابل استرداد
+        </h3>
+        <ul style="margin-top: var(--space-lg); font-size: var(--text-xs); color: var(--text-secondary); line-height: 2; list-style-type: disc; padding-inline-start: 1.2rem;">
+          <li>عطریات و لوسیون‌های مراقبت پوستی در صورت باز شدن سلفون بهداشتی.</li>
+          <li>لباس‌های سفارشی‌دوزی شده که طبق اندازه‌های اختصاصی مشتری دوخته شده‌اند.</li>
+          <li>کالاهای با برچسب حراج نهایی (Final Archive Sale).</li>
+          <li>کارت‌های هدیه دیجیتال که کد آنها در حسابی دیگر ثبت شده باشد.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 4: Live Order Tracking CTA -->
+    <section class="reveal-fade-up" style="background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-subtle) 100%); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-3xl); text-align: center;">
+      <span class="section-tag">سامانه پیگیری آنلاین</span>
+      <h2 style="font-size: var(--text-2xl); font-weight: 800; margin-top: 0.5rem;">بسته شما در چه مرحله‌ای قرار دارد؟</h2>
+      <p style="font-size: var(--text-xs); color: var(--text-secondary); max-width: 600px; margin-inline: auto; margin-top: var(--space-sm); line-height: 1.8;">
+        با وارد کردن شماره سفارش نُوا (مانند NOVA-84920) یا شماره موبایل خود، موقعیت لحظه‌ای مرسوله را بر روی نقشه آنلاین مشاهده فرمایید.
+      </p>
+
+      <div class="flex items-center justify-center gap-md flex-wrap" style="margin-top: var(--space-2xl);">
+        <a href="tracking.html" class="btn btn-primary">ورود به سامانه رهگیری مرسوله</a>
+        <a href="orders.html" class="btn btn-outline">مشاهده سوابق سفارش‌ها در پنل</a>
+        <a href="faq.html" class="btn btn-outline">مطالعه پرسش‌های متداول</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top footer-top-5col">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">NOVA <span class="logo-dot"></span></a>
+        <p>استودیو دیزاین و خانه مد معاصر نُوا؛ آفرینش آثاری کم‌نظیر با اصالت متریال‌های ارگانیک، خطوط معمارانه و ظرافت دست‌ساز برای خریدارانی با دیدگاه تمایزگرا.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">کالکشن‌ها و استایل</h4>
+        <div class="footer-links">
+          <a href="collections.html">آرشیو همه کالکشن‌ها</a>
+          <a href="lookbook.html">لوک‌بوک تعاملی</a>
+          <a href="brands.html">طراحان و برندها</a>
+          <a href="shop.html?category=fashion">مد و پوشاک دست‌دوز</a>
+          <a href="shop.html?category=accessories">اکسسوری و چرم طبیعی</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title">راهنمای مشتریان</h4>
+        <div class="footer-links">
+          <a href="size-guide.html">راهنمای جامع سایز</a>
+          <a href="shipping-returns.html">ارسال و بازگشت کالا</a>
+          <a href="tracking.html">رهگیری آنلاین مرسوله</a>
+          <a href="gift-card.html">خرید کارت هدیه نُوا</a>
+          <a href="faq.html">پرسش‌های متداول (FAQ)</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title">درباره و تماس</h4>
+        <div class="footer-links">
+          <a href="about.html">داستان برند نُوا</a>
+          <a href="contact.html">شوروم‌ها و ارتباط با ما</a>
+          <a href="privacy.html">حفظ حریم شخصی</a>
+          <a href="terms.html">قوانین و مقررات خرید</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title">ارتباط مستقیم</h4>
+        <div style="font-size: var(--text-xs); color: var(--text-secondary); line-height: 1.8;">
+          <div>شوروم مرکزی: تهران، الهیه، انتهای خیابان گلنار</div>
+          <div>تلفن پشتیبانی: ۰۲۱-۲۲۰۰۳۳۴۴</div>
+          <div style="margin-top: 1rem;">
+            <a href="contact.html" class="btn btn-outline btn-sm btn-block">مسیریابی به شوروم</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>© ۲۰۲۶ استودیو نُوا (NOVA). تمامی حقوق محفوظ است.</div>
+      <div class="flex items-center gap-md">
+        <a href="privacy.html">حریم خصوصی</a>
+        <span>•</span>
+        <a href="terms.html">شرایط استفاده</a>
+        <span>•</span>
+        <a href="sitemap.xml">نقشه سایت</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Drawer & Backdrop -->
+  <div id="cart-drawer" class="drawer drawer-end">
+    <div class="drawer-header">
+      <h3 class="drawer-title"><span>سبد خرید شما</span></h3>
+      <button class="drawer-close" onclick="novaCart.closeDrawer()" aria-label="بستن">✕</button>
+    </div>
+    <div id="cart-drawer-items" class="drawer-body"></div>
+    <div id="cart-drawer-footer" class="drawer-footer"></div>
+  </div>
+
+  <div id="global-overlay" class="overlay-backdrop"></div>
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/promo.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

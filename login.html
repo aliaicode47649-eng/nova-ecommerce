@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ورود به حساب کاربری | نُوا — NOVA</title>
+  <meta name="description" content="ورود به حساب اختصاصی مشتریان استودیو نُوا جهت پیگیری سفارشات و دسترسی به باشگاه مشتریان.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+  <!-- Header -->
+  <!-- Top Announcement Promo Strip -->
+  <div class="top-announcement-strip footer-promo-strip">
+    <div class="top-promo-content">
+      <span>✨ خرید آخر تابستون نُوا با تخفیف‌های جذاب تا ۷۰٪ | ارسال اکسپرس رایگان برای خریدهای بالای ۳,۰۰۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">NOVA <span class="logo-dot"></span></a>
+      <div class="flex items-center gap-md">
+        <button class="action-btn theme-toggle-btn" onclick="toggleTheme()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Card Stage -->
+  <main class="container section-py" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+    <div class="reveal-scale-in" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: clamp(2rem, 4vw, 3rem); max-width: 460px; width: 100%; box-shadow: var(--shadow-md);">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="section-tag">باشگاه مشتریان نُوا</span>
+        <h1 style="font-size: var(--text-2xl); font-weight: bold; margin-top: 0.25rem;">ورود به حساب کاربری</h1>
+        <p style="font-size: var(--text-xs); color: var(--text-secondary); margin-top: 0.4rem;">شماره موبایل یا ایمیل ثبت‌نامی خود را وارد نمایید</p>
+      </div>
+
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="login-user">شماره موبایل یا ایمیل *</label>
+          <input type="text" id="login-user" class="form-input" placeholder="۰۹۱۲۳۴۵۶۷۸۹ یا email@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <div class="flex justify-between items-center" style="margin-bottom: 0.25rem;">
+            <label class="form-label" for="login-pass">رمز عبور *</label>
+            <button type="button" style="background: none; border: none; padding: 0; font-family: inherit; font-size: 0.75rem; color: var(--accent); text-decoration: underline; cursor: pointer;" onclick="if(window.showToast) showToast('لینک بازیابی رمز عبور پیامک شد', 'info')">رمز عبور را فراموش کرده‌اید؟</button>
+          </div>
+          <input type="password" id="login-pass" class="form-input" placeholder="••••••••" required>
+        </div>
+
+        <div class="flex items-center justify-between" style="margin-bottom: 1.5rem; font-size: var(--text-xs);">
+          <label class="flex items-center gap-xs" style="cursor: pointer;">
+            <input type="checkbox" checked style="accent-color: var(--accent);"> مرا به خاطر بسپار
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg">
+          ورود به حساب
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: var(--text-xs); color: var(--text-secondary);">
+        حساب کاربری ندارید؟ <a href="register.html" style="color: var(--accent); font-weight: bold;">همین حالا ثبت‌نام کنید ←</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container text-center" style="text-align: center; font-size: var(--text-xs); color: var(--text-tertiary);">
+      © ۲۰۲۶ استودیو نُوا (NOVA). کلیه حقوق محفوظ است.
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/promo.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

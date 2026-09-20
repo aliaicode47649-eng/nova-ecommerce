@@ -1,0 +1,229 @@
+/* ==========================================================================
+   NOVA — Premium Ecommerce Design System Tokens
+   Variables, Color Palettes, Typography, Spacing & Shadows
+   ========================================================================== */
+
+:root {
+  /* Brand Core Colors (Light Mode) */
+  --bg-primary: #F7F6F2;          /* Warm stone editorial base */
+  --bg-surface: #FFFFFF;          /* Pure white card and container surface */
+  --bg-surface-subtle: #EFECE6;   /* Subtle tinted contrast background */
+  --bg-surface-elevated: #FFFFFF; /* Modals, popovers, dropdowns */
+  --text-primary: #111111;        /* Deep onyx primary text */
+  --text-secondary: #666666;      /* Refined muted editorial text */
+  --text-tertiary: #92928E;       /* Captions, timestamps, borders */
+  --border-color: #E5E2DC;        /* Crisp, tactile hairline borders */
+  --border-focus: #111111;        /* High-contrast active focus ring */
+
+  /* Luxury Accent Palette */
+  --accent: #B08D57;              /* Muted Persian Champagne Gold */
+  --accent-hover: #967440;        /* Deep gold hover state */
+  --accent-light: #F8F4EE;        /* Delicate tinted highlight badge */
+  --accent-dark: #74562B;         /* Contrast accent for dark surfaces */
+
+  /* Secondary & Dynamic Accent Colors (Enhanced Vitality) */
+  --accent-warm: #C85A48;         /* Terracotta Crimson - Flash deals & urgent sales */
+  --accent-warm-light: #FDF2F0;   /* Delicate crimson wash */
+  --accent-cool: #245A66;         /* Imperial Petrol Teal - Special & new items */
+  --accent-cool-light: #EDF5F7;   /* Delicate teal wash */
+  --accent-violet: #6C4A8D;       /* Royal Amethyst - VIP & artisanal luxury */
+  --accent-violet-light: #F5EEF9;
+  --accent-emerald: #2E7D32;      /* Emerald Green - Free shipping & success */
+
+  /* Newsletter / Footer Promo Banner (theme-aware, high-contrast) */
+  --newsletter-bg: #1F1A15;       /* Deep espresso band, distinct from page bg */
+  --newsletter-text: #F5F1E8;     /* Warm off-white — AA+ contrast on the band */
+  --newsletter-text-muted: #C9BFAE;
+  --newsletter-border: rgba(212, 175, 55, 0.28);
+  --newsletter-input-bg: rgba(255, 255, 255, 0.10);
+  --newsletter-input-border: rgba(255, 255, 255, 0.28);
+  --newsletter-input-text: #FFFFFF;
+  --newsletter-input-placeholder: #B8AF9F;
+
+  /* Dynamic Gradients */
+  --gradient-gold: linear-gradient(135deg, #B08D57 0%, #D4AF37 50%, #8C6D3B 100%);
+  --gradient-sunset: linear-gradient(135deg, #C85A48 0%, #E2847A 50%, #B08D57 100%);
+  --gradient-cool: linear-gradient(135deg, #245A66 0%, #3D7E8D 50%, #B08D57 100%);
+  --gradient-brand: linear-gradient(135deg, #111111 0%, #2A2A2A 50%, #1A1A1A 100%);
+  --gradient-story: linear-gradient(45deg, #D4AF37, #C85A48, #6C4A8D, #245A66);
+
+  /* Social Brand Colors */
+  --color-instagram: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+  --color-telegram: #229ED9;
+  --color-youtube: #FF0000;
+  --color-whatsapp: #25D366;
+  --color-pinterest: #BD081C;
+
+  /* Semantic Feedback */
+  --success: #2E7D32;
+  --success-bg: #E8F5E9;
+  --error: #C85A48;
+  --error-bg: #FFEBEE;
+  --warning: #EF6C00;
+  --warning-bg: #FFF3E0;
+  --info: #1565C0;
+  --info-bg: #E3F2FD;
+
+  /* Typography Scale (Fluid with clamp) */
+  --font-primary: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+  --font-display: 'Playfair Display', 'Vazirmatn', serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+
+  /* Font Sizes */
+  --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
+  --text-sm: clamp(0.8rem, 0.76rem + 0.2vw, 0.875rem);
+  --text-base: clamp(0.925rem, 0.9rem + 0.15vw, 1rem);
+  --text-md: clamp(1.05rem, 1rem + 0.25vw, 1.15rem);
+  --text-lg: clamp(1.2rem, 1.12rem + 0.4vw, 1.35rem);
+  --text-xl: clamp(1.45rem, 1.32rem + 0.65vw, 1.75rem);
+  --text-2xl: clamp(1.8rem, 1.6rem + 1vw, 2.25rem);
+  --text-3xl: clamp(2.3rem, 2rem + 1.5vw, 3.1rem);
+  --text-display: clamp(2.8rem, 2.2rem + 3vw, 4.5rem);
+
+  /* Line Heights */
+  --lh-tight: 1.15;
+  --lh-snug: 1.35;
+  --lh-normal: 1.65;
+  --lh-relaxed: 1.85;
+
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+  /* Elevation Shadows (Soft, studio diffuse shadows - no cheap blur) */
+  --shadow-xs: 0 1px 2px rgba(17, 17, 17, 0.03);
+  --shadow-sm: 0 2px 8px rgba(17, 17, 17, 0.04), 0 1px 3px rgba(17, 17, 17, 0.02);
+  --shadow-md: 0 8px 24px rgba(17, 17, 17, 0.06), 0 2px 6px rgba(17, 17, 17, 0.02);
+  --shadow-lg: 0 16px 40px rgba(17, 17, 17, 0.08), 0 4px 12px rgba(17, 17, 17, 0.03);
+  --shadow-xl: 0 24px 60px rgba(17, 17, 17, 0.12), 0 8px 20px rgba(17, 17, 17, 0.04);
+
+  /* Colored Accent Shadows (for featured/highlighted cards) */
+  --shadow-accent-gold:   0 8px 28px rgba(176, 141, 87, 0.22), 0 2px 8px rgba(176, 141, 87, 0.12);
+  --shadow-accent-teal:   0 8px 28px rgba(36, 90, 102, 0.20), 0 2px 8px rgba(36, 90, 102, 0.10);
+  --shadow-accent-violet: 0 8px 28px rgba(108, 74, 141, 0.20), 0 2px 8px rgba(108, 74, 141, 0.10);
+  --shadow-accent-warm:   0 8px 28px rgba(200, 90, 72, 0.20), 0 2px 8px rgba(200, 90, 72, 0.10);
+  /* Hover card shadow — used on product-card:hover for consistent depth */
+  --shadow-hover-card:    0 12px 32px rgba(17, 17, 17, 0.10), 0 4px 10px rgba(17, 17, 17, 0.04);
+
+  /* Borders & Radii */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Spacing Scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* Layout Consts */
+  --container-max: 1440px;
+  --container-narrow: 1120px;
+  --container-reading: 780px;
+  --container-pad: clamp(1rem, 3vw, 2.5rem);
+  --header-height: 80px;
+  --announcement-height: 38px;
+
+  /* Animation Timings */
+  --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 450ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-luxury: 650ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Z-indices */
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-floating: 700;
+  --z-header: 500;
+  --z-drawer: 900;
+  --z-modal: 1000;
+  --z-toast: 1100;
+}
+
+/* ==========================================================================
+   Dark Mode Variables (Activated via [data-theme="dark"] on <html>)
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg-primary: #0D0D0D;
+  --bg-surface: #161616;
+  --bg-surface-subtle: #1F1F1F;
+  --bg-surface-elevated: #242424;
+  --text-primary: #F5F5F5;
+  --text-secondary: #A0A0A0;
+  --text-tertiary: #6E6E6E;
+  --border-color: #282828;
+  --border-focus: #F5F5F5;
+
+  --accent: #D4AF37;
+  --accent-hover: #E8C14D;
+  --accent-light: #221D12;
+  --accent-dark: #FFD868;
+
+  --accent-warm: #FF6B6B;
+  --accent-warm-light: #2A1717;
+  --accent-cool: #4ECDC4;
+  --accent-cool-light: #122224;
+  --accent-violet: #A27BDB;
+  --accent-violet-light: #21192C;
+  --accent-emerald: #4CAF50;
+
+  /* Newsletter / Footer Promo Banner — dark theme keeps a clearly lifted,
+     gold-tinted surface so the text never melts into the page background. */
+  --newsletter-bg: #241E14;       /* Warm dark gold-brown, lifted off #0D0D0D */
+  --newsletter-text: #F3EDE0;
+  --newsletter-text-muted: #CBBF9E;
+  --newsletter-border: rgba(212, 175, 55, 0.35);
+  --newsletter-input-bg: rgba(255, 255, 255, 0.06);
+  --newsletter-input-border: rgba(212, 175, 55, 0.4);
+  --newsletter-input-text: #FFFFFF;
+  --newsletter-input-placeholder: #A99C7E;
+
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #FFDF73 50%, #9C7919 100%);
+  --gradient-sunset: linear-gradient(135deg, #FF6B6B 0%, #FFA07A 50%, #D4AF37 100%);
+  --gradient-cool: linear-gradient(135deg, #245A66 0%, #4ECDC4 50%, #D4AF37 100%);
+  --gradient-brand: linear-gradient(135deg, #1C1C1C 0%, #303030 50%, #151515 100%);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.65);
+
+  /* Accent shadows — deeper on dark surfaces */
+  --shadow-accent-gold:   0 8px 28px rgba(212, 175, 55, 0.18), 0 2px 8px rgba(212, 175, 55, 0.08);
+  --shadow-accent-teal:   0 8px 28px rgba(78, 205, 196, 0.15), 0 2px 8px rgba(78, 205, 196, 0.07);
+  --shadow-accent-violet: 0 8px 28px rgba(162, 123, 219, 0.15), 0 2px 8px rgba(162, 123, 219, 0.07);
+  --shadow-accent-warm:   0 8px 28px rgba(255, 107, 107, 0.15), 0 2px 8px rgba(255, 107, 107, 0.07);
+  --shadow-hover-card:    0 12px 32px rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   Campaign Theme Switchers (e.g. Black Friday or Spring Campaign)
+   ========================================================================== */
+body[data-campaign="black-friday"] {
+  --accent: #FF3B30;
+  --accent-hover: #D70015;
+  --accent-warm: #FF453A;
+  --gradient-brand: linear-gradient(135deg, #000000 0%, #1A0000 50%, #FF3B30 100%);
+}
+
+body[data-campaign="spring-sale"] {
+  --accent: #2E7D32;
+  --accent-hover: #1B5E20;
+  --accent-warm: #E26D5C;
+  --gradient-brand: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #B08D57 100%);
+}

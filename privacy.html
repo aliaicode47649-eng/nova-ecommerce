@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حفظ حریم خصوصی و امنیت اطلاعات | نُوا — NOVA</title>
+  <meta name="description" content="سیاست‌های حفاظت از حریم شخصی، امنیت داده‌های پرداخت و محرمانگی مشخصات کاربران در فروشگاه استودیو نُوا.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Site Header & Mega Menu
+       ========================================================================== -->
+  <!-- Top Announcement Promo Strip -->
+  <div class="top-announcement-strip footer-promo-strip">
+    <div class="top-promo-content">
+      <span>✨ خرید آخر تابستون نُوا با تخفیف‌های جذاب تا ۷۰٪ | ارسال اکسپرس رایگان برای خریدهای بالای ۳,۰۰۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+  <header class="site-header">
+    <!-- Main Top Bar -->
+    <div class="container header-inner">
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle-btn action-btn" onclick="openMobileNav()" title="منوی دسترسی">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo">
+        NOVA <span class="logo-dot"></span>
+      </a>
+
+      <!-- Central Search Bar (روژاشاپ Style) -->
+      <div class="header-search-box">
+        <svg class="header-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input 
+          type="text" 
+          class="header-search-input" 
+          id="header-search-input" 
+          placeholder="جستجوی نام محصول، برند، دسته‌بندی و ..." 
+        >
+      </div>
+
+      <!-- Header Action Buttons (Adjacent & Prominent) -->
+      <div class="header-actions">
+        <!-- User Account Button (Pill Style) -->
+        <a href="account.html" class="header-btn-pill" id="header-user-btn" title="ورود به حساب کاربری">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>ورود / عضویت</span>
+        </a>
+
+        <!-- Shopping Cart Button (Pill Style with Counter) -->
+        <button class="header-btn-pill btn-cart-active" onclick="novaCart.openDrawer()" title="مشاهده سبد خرید">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span>سبد خرید</span>
+          <span class="pill-badge cart-count-badge" style="display: none;">۰</span>
+        </button>
+
+        <!-- Wishlist Icon -->
+        <a href="wishlist.html" class="action-btn" title="علاقه‌مندی‌ها">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <span class="action-badge wishlist-count-badge" style="display: none;">۰</span>
+        </a>
+
+        <!-- Dark / Light Mode Switcher -->
+        <button class="action-btn theme-toggle-btn" onclick="toggleTheme()" title="تغییر تم شب و روز">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Secondary Sub-Navigation Bar -->
+        <div class="header-sub-nav">
+      <div class="container header-sub-inner">
+        <div class="header-sub-main flex items-center gap-lg">
+          <!-- Mega Menu Trigger with Categories -->
+          <div class="nav-item">
+            <button class="category-trigger-btn" aria-label="دسته‌بندی کالاها">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+              <span>دسته‌بندی کالاها</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; opacity:0.8;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            
+            <!-- Mega Menu Dropdown -->
+            <div class="mega-menu">
+              <div class="mega-menu-grid">
+                <div>
+                  <a href="shop.html?category=fashion" class="mega-column-title">مد و پوشاک دست‌دوز ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-01">پالتو پشمی دست‌دوز مینیمال <span class="mega-badge">جدید</span></a>
+                    <a href="product.html?id=nova-09">کت لینن بهاره ژاپنی</a>
+                    <a href="product.html?id=nova-21">پیراهن ماکسی ابریشمی شب</a>
+                    <a href="product.html?id=nova-11">شال ترمه و کشمیر فوق‌سبک</a>
+                    <a href="product.html?id=nova-15">کفش چرم دربی مینیمال</a>
+                    <a href="shop.html?category=fashion" class="mega-view-all">مشاهده همه پوشاک ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=accessories" class="mega-column-title">اکسسوری و چرم طبیعی ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-02">کیف تمام‌چرم توسکانی <span class="mega-badge">پرفروش</span></a>
+                    <a href="product.html?id=nova-05">ساعت کلاسیک استیل ۳۱۶</a>
+                    <a href="product.html?id=nova-06">عینک آفتابی استات دست‌ساز</a>
+                    <a href="product.html?id=nova-18">کیف پول جیبی چرم اسلیم</a>
+                    <a href="product.html?id=nova-20">دستبند النگویی روکش طلا</a>
+                    <a href="shop.html?category=accessories" class="mega-view-all">مشاهده همه اکسسوری‌ها ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=beauty" class="mega-column-title">زیبایی، عطر و مراقبت ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-03">عطر نیش صندل و عنبر <span class="mega-badge">پرفروش</span></a>
+                    <a href="product.html?id=nova-08">سرم آبرسان جلبک و پپتید <span class="mega-badge">ویژه</span></a>
+                    <a href="product.html?id=nova-14">روغن خالص آرگان مراکشی</a>
+                    <a href="product.html?id=nova-19">شمع معطر مومی سویا</a>
+                    <a href="product.html?id=nova-16">ماگ سرامیک استودیویی</a>
+                    <a href="shop.html?category=beauty" class="mega-view-all">مشاهده همه محصولات زیبایی ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=living" class="mega-column-title">خانه، دکور و فناوری ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-04">صندلی استراحت مدرن</a>
+                    <a href="product.html?id=nova-10">چراغ خواب بتنی دیمردار</a>
+                    <a href="product.html?id=nova-13">گلدان سرامیکی زاویه‌دار</a>
+                    <a href="product.html?id=nova-07">اسپیکر سرامیکی های-فای</a>
+                    <a href="product.html?id=nova-12">هدفون نویزکنسلینگ استودیویی</a>
+                    <a href="shop.html?category=living" class="mega-view-all">مشاهده خانه و فناوری ←</a>
+                  </div>
+                </div>
+
+                <!-- Mega Promo Card -->
+                <div class="mega-promo-card">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="کالکشن پاییزه">
+                  <div class="mega-promo-content">
+                    <span class="mega-badge" style="margin-bottom: 0.5rem; display: inline-block;">کالکشن انحصاری ۲۰۲۶</span>
+                    <h4 style="font-size: var(--text-md); font-weight: bold; color: #fff; margin-bottom: 0.5rem;">ظرافت در تار و پود مینیمالیسم</h4>
+                    <a href="collections.html" class="btn btn-accent btn-sm">مشاهده کالکشن</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Links -->
+          <div class="sub-links-list">
+            <a href="index.html" class="active" style="color: var(--accent); font-weight: bold;">صفحه نخست</a>
+            <a href="shop.html">فروشگاه</a>
+            <a href="collections.html">کالکشن‌ها</a>
+            <a href="lookbook.html">لوک‌بوک</a>
+            <a href="brands.html">طراحان</a>
+            <a href="index.html#flash-deals" class="nav-flash-deal">🔥 حراج شگفت‌انگیز</a>
+            <a href="blog.html">مجله استایل</a>
+            <a href="about.html">درباره ما</a>
+            <a href="contact.html">تماس</a>
+          </div>
+        </div>
+
+        <div class="sub-nav-actions flex items-center gap-md">
+          <a href="gift-card.html" class="sub-nav-action-link" title="خرید و استعلام کارت هدیه نُوا">
+            🎁 کارت هدیه
+          </a>
+          <span class="sub-nav-divider">|</span>
+          <a href="tracking.html" class="sub-nav-action-link tracking-link" title="رهگیری و پیگیری لحظه‌ای سفارش">
+            🔍 پیگیری سفارش
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-banner reveal-fade-up" style="background-color: var(--bg-surface-subtle); border-bottom: 1px solid var(--border-color); padding-block: 2.5rem;">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">صفحه اصلی</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="current">حریم خصوصی</span>
+      </div>
+      <span class="section-tag" style="margin-top: 1rem; display: inline-block;">امنیت و محرمانگی</span>
+      <h1 style="font-size: var(--text-2xl); font-weight: var(--fw-bold); margin-top: 0.5rem;">سیاست حفظ حریم خصوصی استودیو نُوا</h1>
+      <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-top: 0.5rem; max-width: 600px;">
+        احترام به حریم شخصی خریداران و حفاظت از اطلاعات تراکنش‌ها از اصول بنیادین برند نُوا است.
+      </p>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <main class="container section-py">
+    <div class="reveal-fade-up delay-1" style="max-width: 860px; margin-inline: auto; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: clamp(1.5rem, 4vw, 3rem); box-shadow: var(--shadow-sm);">
+      
+      <!-- Article 1 -->
+      <article style="margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color);">
+        <h2 style="font-size: var(--text-lg); font-weight: var(--fw-bold); color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span>۰۱.</span> داده‌هایی که جمع‌آوری می‌کنیم
+        </h2>
+        <p style="color: var(--text-secondary); line-height: var(--lh-relaxed); font-size: var(--text-sm); margin-bottom: 1rem;">
+          برای پردازش سفارش، صدور فاکتور و هماهنگی ارسال سریع، اطلاعاتی شامل نام و نام خانوادگی، شماره تماس همراه، آدرس پستی دقیق و کد پستی دریافت می‌گردد. همچنین در صورت عضویت اختیاری، آدرس ایمیل برای اطلاع‌رسانی تخفیف‌های ویژه کلاب نُوا ثبت می‌شود.
+        </p>
+        <p style="color: var(--text-secondary); line-height: var(--lh-relaxed); font-size: var(--text-sm);">
+          ما تحت هیچ شرایطی اطلاعات هویتی شما را به شرکت‌های تبلیغاتی ثالث نفروخته و واگذار نخواهیم کرد.
+        </p>
+      </article>
+
+      <!-- Article 2 -->
+      <article style="margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color);">
+        <h2 style="font-size: var(--text-lg); font-weight: var(--fw-bold); color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span>۰۲.</span> امنیت تراکنش‌ها و درگاه بانکی
+        </h2>
+        <p style="color: var(--text-secondary); line-height: var(--lh-relaxed); font-size: var(--text-sm); margin-bottom: 1rem;">
+          تمامی ارتباطات اینترنتی وب‌سایت نُوا بر بستر رمزنگاری‌شده پروتکل امن SSL صورت می‌پذیرد. همچنین تراکنش‌های مالی مستقیماً در درگاه‌های رسمی و شاپرک بانک مرکزی جمهوری اسلامی ایران پردازش می‌شوند و استودیو نُوا به هیچ وجه به اطلاعات کارت بانکی (شماره کارت، رمز دوم یا CVV2) دسترسی ندارد.
+        </p>
+      </article>
+
+      <!-- Article 3 -->
+      <article style="margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color);">
+        <h2 style="font-size: var(--text-lg); font-weight: var(--fw-bold); color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span>۰۳.</span> فایل‌های کوکی (Cookies) و ذخیره‌سازی محلی
+        </h2>
+        <p style="color: var(--text-secondary); line-height: var(--lh-relaxed); font-size: var(--text-sm);">
+          این وب‌سایت از حافظه محلی مرورگر (Local Storage) صرفاً جهت حفظ تجربه کاربری روان (نظیر به یاد داشتن اقلام سبد خرید، لیست علاقه‌مندی‌ها و حالت شب/روز انتخاب‌شده توسط کاربر) استفاده می‌کند. شما می‌توانید در هر زمان حافظه مرورگر خود را پاک نمایید.
+        </p>
+      </article>
+
+      <!-- Article 4 -->
+      <article>
+        <h2 style="font-size: var(--text-lg); font-weight: var(--fw-bold); color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span>۰۴.</span> درخواست حذف یا ویرایش اطلاعات
+        </h2>
+        <p style="color: var(--text-secondary); line-height: var(--lh-relaxed); font-size: var(--text-sm); margin-bottom: 1.5rem;">
+          شما در هر زمان حق دارید از طریق پنل کاربری یا ارتباط با پشتیبانی، مشخصات خود را اصلاح کرده یا درخواست حذف کامل داده‌های کاربری خود را ثبت فرمایید.
+        </p>
+        <div class="flex items-center gap-md flex-wrap">
+          <a href="contact.html" class="btn btn-primary btn-sm">درخواست پشتیبانی</a>
+          <a href="terms.html" class="btn btn-outline btn-sm">قوانین و ضوابط نُوا</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container text-center" style="text-align: center; font-size: var(--text-xs); color: var(--text-tertiary); padding-block: 2rem;">
+      © ۲۰۲۶ استودیو نُوا (NOVA). تمامی حقوق محفوظ است.
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <div id="global-overlay" class="overlay-backdrop"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/promo.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوک‌بوک تعاملی و استایلینگ ادیتوریال | نُوا — NOVA</title>
+  <meta name="description" content="لوک‌بوک تعاملی استودیو نُوا؛ استایل‌های کامل کیوریت‌شده با قابلیت مشاهده جزئیات تک‌تک آیتم‌ها و خرید یکجای کل لوک.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages-extra.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement Strip -->
+  <div class="top-announcement-strip footer-promo-strip">
+    <div class="top-promo-content">
+      <span>✨ لوک‌بوک تعاملی پاییز و زمستان ۲۰۲۶ | با کلیک روی هر نقطه تصویر، آیتم‌های استایل را مستقیماً کشف کنید</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="mobile-toggle-btn action-btn" onclick="openMobileNav()" title="منوی دسترسی" aria-label="باز کردن منو">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+
+      <a href="index.html" class="brand-logo">NOVA <span class="logo-dot"></span></a>
+
+      <!-- Search Bar -->
+      <div class="header-search-box">
+        <svg class="header-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input 
+          type="text" 
+          class="header-search-input" 
+          id="header-search-input" 
+          placeholder="جستجوی استایل‌ها، طراحان، پالتوها و ..."
+        >
+      </div>
+
+      <!-- Header Action Pills -->
+      <div class="header-actions">
+        <a href="account.html" class="header-btn-pill" title="ورود به حساب کاربری">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>ورود / عضویت</span>
+        </a>
+
+        <button class="header-btn-pill btn-cart-active" onclick="novaCart.openDrawer()" title="سبد خرید">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span>سبد خرید</span>
+          <span class="pill-badge cart-count-badge" style="display:none;">۰</span>
+        </button>
+
+        <a href="wishlist.html" class="action-btn" title="علاقه‌مندی‌ها">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <span class="action-badge wishlist-count-badge" style="display:none;">۰</span>
+        </a>
+
+        <button class="action-btn theme-toggle-btn" onclick="toggleTheme()" title="تغییر تم">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Secondary Sub-Nav Bar -->
+        <div class="header-sub-nav">
+      <div class="container header-sub-inner">
+        <div class="header-sub-main flex items-center gap-lg">
+          <!-- Mega Menu Trigger with Categories -->
+          <div class="nav-item">
+            <button class="category-trigger-btn" aria-label="دسته‌بندی کالاها">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+              <span>دسته‌بندی کالاها</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; opacity:0.8;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            
+            <!-- Mega Menu Dropdown -->
+            <div class="mega-menu">
+              <div class="mega-menu-grid">
+                <div>
+                  <a href="shop.html?category=fashion" class="mega-column-title">مد و پوشاک دست‌دوز ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-01">پالتو پشمی دست‌دوز مینیمال <span class="mega-badge">جدید</span></a>
+                    <a href="product.html?id=nova-09">کت لینن بهاره ژاپنی</a>
+                    <a href="product.html?id=nova-21">پیراهن ماکسی ابریشمی شب</a>
+                    <a href="product.html?id=nova-11">شال ترمه و کشمیر فوق‌سبک</a>
+                    <a href="product.html?id=nova-15">کفش چرم دربی مینیمال</a>
+                    <a href="shop.html?category=fashion" class="mega-view-all">مشاهده همه پوشاک ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=accessories" class="mega-column-title">اکسسوری و چرم طبیعی ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-02">کیف تمام‌چرم توسکانی <span class="mega-badge">پرفروش</span></a>
+                    <a href="product.html?id=nova-05">ساعت کلاسیک استیل ۳۱۶</a>
+                    <a href="product.html?id=nova-06">عینک آفتابی استات دست‌ساز</a>
+                    <a href="product.html?id=nova-18">کیف پول جیبی چرم اسلیم</a>
+                    <a href="product.html?id=nova-20">دستبند النگویی روکش طلا</a>
+                    <a href="shop.html?category=accessories" class="mega-view-all">مشاهده همه اکسسوری‌ها ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=beauty" class="mega-column-title">زیبایی، عطر و مراقبت ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-03">عطر نیش صندل و عنبر <span class="mega-badge">پرفروش</span></a>
+                    <a href="product.html?id=nova-08">سرم آبرسان جلبک و پپتید <span class="mega-badge">ویژه</span></a>
+                    <a href="product.html?id=nova-14">روغن خالص آرگان مراکشی</a>
+                    <a href="product.html?id=nova-19">شمع معطر مومی سویا</a>
+                    <a href="product.html?id=nova-16">ماگ سرامیک استودیویی</a>
+                    <a href="shop.html?category=beauty" class="mega-view-all">مشاهده همه محصولات زیبایی ←</a>
+                  </div>
+                </div>
+
+                <div>
+                  <a href="shop.html?category=living" class="mega-column-title">خانه، دکور و فناوری ←</a>
+                  <div class="mega-links">
+                    <a href="product.html?id=nova-04">صندلی استراحت مدرن</a>
+                    <a href="product.html?id=nova-10">چراغ خواب بتنی دیمردار</a>
+                    <a href="product.html?id=nova-13">گلدان سرامیکی زاویه‌دار</a>
+                    <a href="product.html?id=nova-07">اسپیکر سرامیکی های-فای</a>
+                    <a href="product.html?id=nova-12">هدفون نویزکنسلینگ استودیویی</a>
+                    <a href="shop.html?category=living" class="mega-view-all">مشاهده خانه و فناوری ←</a>
+                  </div>
+                </div>
+
+                <!-- Mega Promo Card -->
+                <div class="mega-promo-card">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="کالکشن پاییزه">
+                  <div class="mega-promo-content">
+                    <span class="mega-badge" style="margin-bottom: 0.5rem; display: inline-block;">کالکشن انحصاری ۲۰۲۶</span>
+                    <h4 style="font-size: var(--text-md); font-weight: bold; color: #fff; margin-bottom: 0.5rem;">ظرافت در تار و پود مینیمالیسم</h4>
+                    <a href="collections.html" class="btn btn-accent btn-sm">مشاهده کالکشن</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Links -->
+          <div class="sub-links-list">
+            <a href="index.html">صفحه نخست</a>
+            <a href="shop.html">فروشگاه</a>
+            <a href="collections.html">کالکشن‌ها</a>
+            <a href="lookbook.html" class="active" style="color: var(--accent); font-weight: bold;">لوک‌بوک</a>
+            <a href="brands.html">طراحان</a>
+            <a href="index.html#flash-deals" class="nav-flash-deal">🔥 حراج شگفت‌انگیز</a>
+            <a href="blog.html">مجله استایل</a>
+            <a href="about.html">درباره ما</a>
+            <a href="contact.html">تماس</a>
+          </div>
+        </div>
+
+        <div class="sub-nav-actions flex items-center gap-md">
+          <a href="gift-card.html" class="sub-nav-action-link" title="خرید و استعلام کارت هدیه نُوا">
+            🎁 کارت هدیه
+          </a>
+          <span class="sub-nav-divider">|</span>
+          <a href="tracking.html" class="sub-nav-action-link tracking-link" title="رهگیری و پیگیری لحظه‌ای سفارش">
+            🔍 پیگیری سفارش
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-block: var(--space-2xl) var(--space-4xl);">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="مسیر راهنما">
+      <a href="index.html">خانه</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">لوک‌بوک تعاملی</span>
+    </nav>
+
+    <!-- Lookbook Hero -->
+    <div class="editorial-hero reveal-fade-up">
+      <div class="editorial-hero-content">
+        <span class="editorial-eyebrow">Interactive Visual Editorial • FW 2026</span>
+        <h1 class="editorial-title">لوک‌بوک تعاملی و استایلینگ جامع نُوا</h1>
+        <p class="editorial-subtitle">
+          همنشینی هارمونیک بافت‌ها، فرم‌های ارگانیک و تناسبات دقیق. با کلیک بر روی پین‌های تعاملی هر تصویر، شناسنامه و متریال قطعات را بازبینی کرده و استایل کامل را یکجا به سبد خرید خود بیفزایید.
+        </p>
+        <div class="flex items-center justify-center gap-lg flex-wrap" style="margin-top: var(--space-lg); font-size: var(--text-xs); color: var(--text-tertiary);">
+          <span class="flex items-center gap-xs">
+            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent);"></span>
+            پین‌های زنده و تعاملی
+          </span>
+          <span class="flex items-center gap-xs">
+            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent);"></span>
+            خرید یکجای کل لوک با تخفیف ست
+          </span>
+          <span class="flex items-center gap-xs">
+            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent);"></span>
+            مشاوره حضوری در آتلیه
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Filter Tabs -->
+    <div class="lookbook-controls-bar reveal-fade-up" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-md); margin-bottom: var(--space-2xl); padding: var(--space-md) var(--space-lg); background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xs);">
+      <div class="flex items-center gap-sm flex-wrap" id="lookbook-filter-pills">
+        <button class="filter-chip active" data-filter="all" style="padding: 0.4rem 1rem; border-radius: var(--radius-full); border: 1px solid var(--accent); background: var(--accent); color: #fff; font-size: var(--text-xs); cursor: pointer; transition: all var(--transition-fast);">همه استایل‌ها (۴)</button>
+        <button class="filter-chip" data-filter="women" style="padding: 0.4rem 1rem; border-radius: var(--radius-full); border: 1px solid var(--border-color); background: transparent; color: var(--text-secondary); font-size: var(--text-xs); cursor: pointer; transition: all var(--transition-fast);">استایل زنانه</button>
+        <button class="filter-chip" data-filter="men" style="padding: 0.4rem 1rem; border-radius: var(--radius-full); border: 1px solid var(--border-color); background: transparent; color: var(--text-secondary); font-size: var(--text-xs); cursor: pointer; transition: all var(--transition-fast);">استایل مردانه</button>
+        <button class="filter-chip" data-filter="minimal" style="padding: 0.4rem 1rem; border-radius: var(--radius-full); border: 1px solid var(--border-color); background: transparent; color: var(--text-secondary); font-size: var(--text-xs); cursor: pointer; transition: all var(--transition-fast);">مینیمال روزمره</button>
+      </div>
+
+      <div class="text-xs text-secondary flex items-center gap-xs">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <span>برای نمایش آیتم‌ها، نشانگرهای طلایی را لمس کنید</span>
+      </div>
+    </div>
+
+    <!-- Lookbook Grid Container (Rendered by assets/js/lookbook.js) -->
+    <div id="lookbook-grid" class="lookbook-stream"></div>
+
+    <!-- Lookbook Quick View Modal Drawer -->
+    <div id="lookbook-modal" class="lookbook-modal-drawer" style="display: none;"></div>
+
+    <!-- Signature Styling Service Section -->
+    <section class="personal-styling-box reveal-fade-up" style="margin-top: var(--space-4xl); background: var(--bg-surface-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-xs); padding: var(--space-3xl); position: relative; overflow: hidden;">
+      <div style="position: absolute; top: -50px; inset-inline-end: -50px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); pointer-events: none;"></div>
+      
+      <div class="grid grid-2 items-center gap-3xl" style="position: relative; z-index: 1;">
+        <div>
+          <span class="section-tag">سرویس اختصاصی استایلینگ</span>
+          <h2 style="font-size: clamp(1.4rem, 1.2rem + 1vw, 2.2rem); margin-top: 0.5rem; font-weight: 800; line-height: 1.4;">رزرو وقت مشاوره خصوصی با استایلیست نُوا</h2>
+          <p style="color: var(--text-secondary); margin-top: var(--space-md); line-height: 1.8; font-size: var(--text-sm);">
+            انتخاب پالت رنگی مناسب پوست، ست‌کردن اکسسوری‌های دست‌ساز و تناسب فرم تن‌پوش بر اساس سبک زندگی شما. جلسه حضوری در آتلیه الهیه نُوا یا مشاوره ویدئویی اختصاصی همراه با ارسال باکس اختصاصی جهت پرو در محل شما.
+          </p>
+
+          <div class="styling-perks-list" style="margin-block: var(--space-lg); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+            <div class="flex items-center gap-sm">
+              <span style="color: var(--accent); font-weight: bold;">✓</span>
+              <span style="font-size: var(--text-xs); color: var(--text-primary);">آنالیز فرم بدنی و پالت رنگ فصلی</span>
+            </div>
+            <div class="flex items-center gap-sm">
+              <span style="color: var(--accent); font-weight: bold;">✓</span>
+              <span style="font-size: var(--text-xs); color: var(--text-primary);">ارسال ۳ ست کامل جهت پرو ۴۸ ساعته</span>
+            </div>
+            <div class="flex items-center gap-sm">
+              <span style="color: var(--accent); font-weight: bold;">✓</span>
+              <span style="font-size: var(--text-xs); color: var(--text-primary);">تنظیم رایگان سایز توسط خیاط آتلیه</span>
+            </div>
+            <div class="flex items-center gap-sm">
+              <span style="color: var(--accent); font-weight: bold;">✓</span>
+              <span style="font-size: var(--text-xs); color: var(--text-primary);">تخفیف ۱۰٪ روی خرید کل استایل</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-md flex-wrap">
+            <a href="contact.html" class="btn btn-primary">درخواست رزرو وقت حضوری</a>
+            <a href="collections.html" class="btn btn-outline">مشاهده همه کالکشن‌ها</a>
+          </div>
+        </div>
+
+        <div style="position: relative; border-radius: var(--radius-xs); overflow: hidden; box-shadow: var(--shadow-xl);">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" alt="مشاوره استایل در آتلیه نُوا" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+          <div style="position: absolute; bottom: 0; inset-inline: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); padding: var(--space-lg); color: #fff;">
+            <div style="font-family: var(--font-display); font-size: 1.1rem; font-style: italic;">NOVA Atelier & Styling Lounge</div>
+            <div style="font-size: 0.75rem; color: #E5D5BA; margin-top: 0.2rem;">الهیه، خیابان گلنار • پذیرش با هماهنگی قبلی</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top footer-top-5col">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">NOVA <span class="logo-dot"></span></a>
+        <p>استودیو دیزاین و خانه مد معاصر نُوا؛ آفرینش آثاری کم‌نظیر با اصالت متریال‌های ارگانیک، خطوط معمارانه و ظرافت دست‌ساز برای خریدارانی با دیدگاه تمایزگرا.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">کالکشن‌ها و استایل</h4>
+        <div class="footer-links">
+          <a href="collections.html">آرشیو همه کالکشن‌ها</a>
+          <a href="lookbook.html">لوک‌بوک تعاملی</a>
+          <a href="brands.html">طراحان و برندها</a>
+          <a href="shop.html?category=fashion">مد و پوشاک دست‌دوز</a>
+          <a href="shop.html?category=accessories">اکسسوری و چرم طبیعی</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title">راهنمای مشتریان</h4>
+        <div class="footer-links">
+          <a href="size-guide.html">راهنمای جامع سایز</a>
+          <a href="shipping-returns.html">ارسال و بازگشت کالا</a>
+          <a href="tracking.html">رهگیری آنلاین مرسوله</a>
+          <a href="gift-card.html">خرید کارت هدیه نُوا</a>
+          <a href="faq.html">پرسش‌های متداول (FAQ)</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title">درباره و تماس</h4>
+        <div class="footer-links">
+          <a href="about.html">داستان برند نُوا</a>
+          <a href="contact.html">شوروم‌ها و ارتباط با ما</a>
+          <a href="privacy.html">حفظ حریم شخصی</a>
+          <a href="terms.html">قوانین و مقررات خرید</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title">ارتباط مستقیم</h4>
+        <div style="font-size: var(--text-xs); color: var(--text-secondary); line-height: 1.8;">
+          <div>شوروم مرکزی: تهران، الهیه، انتهای خیابان گلنار</div>
+          <div>تلفن پشتیبانی: ۰۲۱-۲۲۰۰۳۳۴۴</div>
+          <div style="margin-top: 1rem;">
+            <a href="contact.html" class="btn btn-outline btn-sm btn-block">مسیریابی به شوروم</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>© ۲۰۲۶ استودیو نُوا (NOVA). تمامی حقوق محفوظ است.</div>
+      <div class="flex items-center gap-md">
+        <a href="privacy.html">حریم خصوصی</a>
+        <span>•</span>
+        <a href="terms.html">شرایط استفاده</a>
+        <span>•</span>
+        <a href="sitemap.xml">نقشه سایت</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Drawer & Backdrop -->
+  <div id="cart-drawer" class="drawer drawer-end">
+    <div class="drawer-header">
+      <h3 class="drawer-title"><span>سبد خرید شما</span></h3>
+      <button class="drawer-close" onclick="novaCart.closeDrawer()" aria-label="بستن">✕</button>
+    </div>
+    <div id="cart-drawer-items" class="drawer-body"></div>
+    <div id="cart-drawer-footer" class="drawer-footer"></div>
+  </div>
+
+  <div id="global-overlay" class="overlay-backdrop"></div>
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/promo.js"></script>
+  <script src="assets/js/lookbook.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
