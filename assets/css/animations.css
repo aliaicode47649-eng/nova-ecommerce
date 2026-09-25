@@ -1078,3 +1078,110 @@
 /* RTL pages: toast slides in from the right (negative translateX)
    LTR pages: toast slides in from the left (positive translateX)
    The --toast-translate-x custom property is set on #toast-container by JS. */
+
+/* ==========================================================================
+   Skeleton Loading (Shimmer Effect)
+   ========================================================================== */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-surface) 0%,
+    var(--bg-elevated, #e8e8e8) 50%,
+    var(--bg-surface) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.skeleton-img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-line {
+  height: 0.85rem;
+  border-radius: 4px;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+.skeleton-line.medium {
+  width: 80%;
+}
+
+.skeleton-line.xshort {
+  width: 40%;
+}
+
+/* ==========================================================================
+   Add-to-Cart Fly Animation
+   ========================================================================== */
+.fly-to-cart {
+  position: fixed;
+  z-index: 99999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  pointer-events: none;
+  animation: fly-to-cart-anim 0.75s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+@keyframes fly-to-cart-anim {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
+  }
+  70% {
+    opacity: 0.8;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+/* Cart badge bounce when item added */
+@keyframes badge-bounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.45); }
+  60% { transform: scale(0.85); }
+  100% { transform: scale(1); }
+}
+
+.badge-bounce {
+  animation: badge-bounce 0.4s ease;
+}
+
+/* ==========================================================================
+   Lazy Image Fade-in
+   ========================================================================== */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+img[loading="lazy"].loaded,
+img[loading="lazy"][src]:not([src=""]) {
+  opacity: 1;
+}

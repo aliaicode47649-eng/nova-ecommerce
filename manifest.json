@@ -1,0 +1,21 @@
+{
+  "name": "نُوا — NOVA Store",
+  "short_name": "NOVA",
+  "description": "فروشگاه پرمیوم مد، زیبایی و لایف‌استایل لوکس",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "dir": "rtl",
+  "lang": "fa",
+  "orientation": "any",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

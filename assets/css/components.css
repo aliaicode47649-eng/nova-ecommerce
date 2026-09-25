@@ -1985,7 +1985,28 @@
 
 .top-announcement-strip .top-promo-content,
 .footer-promo-strip .top-promo-content {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-marquee-track {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-marquee-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (min-width: 769px) {
+  /* On desktop, keep announcement centered and hide duplicate clone & extra bullets */
+  .promo-marquee-item[aria-hidden="true"],
+  .promo-marquee-bullet {
+    display: none !important;
+  }
 }
 
 .footer-newsletter-banner {

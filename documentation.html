@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دفترچه راهنمای جامع قالب نُوا (NOVA) — نسخه ۱.۰</title>
+  
+  <!-- فونت وزیرمتن برای رندر بی‌نقص فارسی -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #B08D57;
+      --primary-dark: #8F703E;
+      --primary-light: #F9F5EE;
+      --dark: #121212;
+      --text: #2A2A2A;
+      --text-muted: #666666;
+      --border: #E8E2D8;
+      --bg: #FFFFFF;
+      --bg-alt: #FAF8F5;
+      --code-bg: #1E1E24;
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #EDE8DF;
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Floating Action Bar for Print / PDF */
+    .action-bar {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(18, 18, 18, 0.9);
+      backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      border-radius: 50px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 1000;
+      border: 1px solid rgba(176, 141, 87, 0.4);
+    }
+    .action-btn {
+      background: var(--primary);
+      color: #FFF;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .action-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    .action-bar span {
+      color: #DDD;
+      font-size: 12px;
+    }
+
+    /* Container for A4 layout */
+    .document-page {
+      max-width: 960px;
+      margin: 40px auto;
+      background: var(--bg);
+      padding: 70px 80px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border-radius: 4px;
+    }
+
+    /* Cover Page */
+    .cover-page {
+      text-align: center;
+      padding: 80px 40px 100px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 50px;
+      position: relative;
+    }
+    .cover-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid var(--border);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+    .cover-title {
+      font-family: 'Playfair Display', 'Vazirmatn', serif;
+      font-size: 50px;
+      color: var(--dark);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+    .cover-subtitle {
+      font-size: 20px;
+      color: var(--primary-dark);
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+    .cover-desc {
+      max-width: 650px;
+      margin: 0 auto 40px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+    .cover-meta {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px dashed var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .cover-meta div strong {
+      color: var(--dark);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* Section Typography */
+    h1, h2, h3, h4 {
+      color: var(--dark);
+      font-weight: 800;
+    }
+    h2 {
+      font-size: 24px;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin: 50px 0 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    h2::before {
+      content: '✦';
+      color: var(--primary);
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 18px;
+      margin: 30px 0 15px;
+      color: var(--primary-dark);
+    }
+    p {
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 15px 30px 25px 0;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Highlight Boxes */
+    .box {
+      background: var(--bg-alt);
+      border-right: 4px solid var(--primary);
+      padding: 18px 22px;
+      border-radius: var(--radius);
+      margin: 25px 0;
+    }
+    .box-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .alert-box {
+      background: #FFF9ED;
+      border-right: 4px solid #E6A23C;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      margin: 20px 0;
+      color: #8C5B00;
+    }
+
+    .success-box {
+      background: #F0F9EB;
+      border-right: 4px solid #67C23A;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      margin: 20px 0;
+      color: #2F6E13;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 13.5px;
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: right;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 700;
+      border-top: 1px solid var(--border);
+    }
+    tr:nth-child(even) {
+      background-color: #FCFBF9;
+    }
+
+    /* Code Blocks */
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      direction: ltr;
+      background: #EFECE6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12.5px;
+      color: #9C3428;
+    }
+    pre {
+      direction: ltr;
+      background: var(--code-bg);
+      color: #F8F8F2;
+      padding: 18px 22px;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    /* File Tree Diagram */
+    .file-tree {
+      direction: ltr;
+      text-align: left;
+      background: var(--code-bg);
+      color: #E2E8F0;
+      padding: 20px 25px;
+      border-radius: var(--radius);
+      font-family: 'Consolas', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      margin: 20px 0;
+    }
+    .file-tree .dir { color: #60A5FA; font-weight: bold; }
+    .file-tree .file { color: #A7F3D0; }
+    .file-tree .comment { color: #94A3B8; font-style: italic; }
+
+    /* Badge Tags */
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      margin: 0 2px;
+    }
+    .tag-primary { background: var(--primary-light); color: var(--primary-dark); border: 1px solid var(--border); }
+    .tag-green { background: #DEF7EC; color: #03543F; }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #FFF;
+        font-size: 12pt;
+      }
+      .action-bar {
+        display: none !important;
+      }
+      .document-page {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+      h2 {
+        margin-top: 30pt;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      pre, .file-tree {
+        white-space: pre-wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Print Button -->
+  <div class="action-bar">
+    <button class="action-btn" onclick="window.print()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+      دریافت نسخه PDF (پرینت)
+    </button>
+    <span>صفحه را باز نگه دارید و کلیدهای <strong>Ctrl + P</strong> را بزنید</span>
+  </div>
+
+  <div class="document-page">
+
+    <!-- 1. COVER PAGE -->
+    <div class="cover-page">
+      <div class="cover-badge">دفترچه راهنمای رسمی خریداران و توسعه‌دهندگان</div>
+      <h1 class="cover-title">NOVA ECOMMERCE</h1>
+      <div class="cover-subtitle">قالب فروشگاهی لوکس، مدرن و ادیتوریال نُوا (نسخه ۱.۰)</div>
+      <p class="cover-desc">
+        مجموعه کامل ۳۲ صفحه وب تعاملی، ساخته شده با معماری مدرن وب، دارای حالت تاریک و روشن اختصاصی، پایگاه داده متمرکز محصولات، و سیستم تصاویر ۱۰۰٪ محلی و مستقل از اینترنت بین‌الملل.
+      </p>
+
+      <div class="cover-meta">
+        <div><strong>نسخه پروژه:</strong> v1.0.0 (Production Ready)</div>
+        <div><strong>تعداد صفحات:</strong> ۳۲ صفحه اختصاصی</div>
+        <div><strong>پشتیبانی از زبان:</strong> فارسی (RTL) و انگلیسی (LTR)</div>
+        <div><strong>وابستگی‌ها:</strong> بدون وابستگی به فریم‌ورک (Pure JS)</div>
+      </div>
+    </div>
+
+    <!-- 2. TABLE OF CONTENTS -->
+    <h2>فهرست عناوین راهنما</h2>
+    <ol>
+      <li><strong>معرفی و مشخصات فنی پروژه</strong></li>
+      <li><strong>نحوه نصب، اجرا و آپلود روی انواع هاست (cPanel / DirectAdmin)</strong></li>
+      <li><strong>سیستم تصاویر و مستقل بودن از اینترنت (Local Assets)</strong></li>
+      <li><strong>راهنمای اطلس صفحات (معرفی ۳۲ صفحه اختصاصی)</strong></li>
+      <li><strong>راهنمای شخصی‌سازی (تغییر لوگو، رنگ سازمانی، فونت و بنرها)</strong></li>
+      <li><strong>مدیریت و افزودن محصولات جدید (پایگاه داده products.js)</strong></li>
+      <li><strong>امکانات و ماژول‌های جاوااسکریپت (سبد خرید، علاقه‌مندی‌ها، مقایسه و...)</strong></li>
+      <li><strong>نکات مهم برای فروش موفق قالب در مارکت‌پلیس‌ها</strong></li>
+      <li><strong>پرسش‌های متداول (FAQ) و عیب‌یابی سریع</strong></li>
+    </ol>
+
+    <div class="page-break"></div>
+
+    <!-- 3. INTRODUCTION -->
+    <h2>۱. معرفی و مشخصات فنی پروژه</h2>
+    <p>
+      قالب <strong>«نُوا (NOVA)»</strong> یک استاندار بین‌المللی در طراحی فروشگاه‌های اینترنتی لوکس در حوزه پوشاک و مد، کیف و کفش چرم، ساعت و اکسسوری، عطر و ادکلن‌های نیش و دکوراسیون مینیمال است. این قالب بر اساس زبان طراحی <strong>Editorial & Modern Luxury</strong> مهندسی شده و حس یک کاتالوگ مجله‌ای نفیس را به مخاطب القا می‌کند.
+    </p>
+
+    <div class="box">
+      <div class="box-title">🌟 مشخصات فنی کلیدی:</div>
+      <ul>
+        <li><strong>توسعه با Pure JavaScript (بدون فریم‌ورک):</strong> به هیچ عنوان از جی‌کوئری (jQuery)، ری‌اکت، ویو یا ابزارهای باندلر سنگین استفاده نشده است. سایت در سبک‌ترین و سریع‌ترین حالت ممکن بارگذاری می‌شود.</li>
+        <li><strong>سیستم دوگانه شب و روز (Dark & Light Mode):</strong> پیاده‌سازی اصولی دارک‌مود با رنگ‌های طبیعی مشکی ابسیدیان و دودی بدون فیلترهای ناشیانه معکوس‌کننده با ذخیره خودکار انتخاب کاربر در <code>localStorage</code>.</li>
+        <li><strong>تایپوگرافی دوگانه استثنایی:</strong> ترکیب فونت برتر فارسی <strong>وزیرمتن (Vazirmatn)</strong> برای خوانایی حداکثری و فونت اشرافی <strong>Playfair Display</strong> برای ارقام و تیترهای لاتین.</li>
+        <li><strong>کاملاً ریسپانسیو و لمسی:</strong> منوی موبایل بهینه، نوار دسترسی چسبان پایین گوشی (Bottom Nav) و دراورهای کشویی روان لمسی.</li>
+      </ul>
+    </div>
+
+    <!-- 4. HOSTING & DEPLOYMENT -->
+    <h2>۲. نحوه نصب و آپلود روی هاست (Deployment)</h2>
+    <p>
+      چون این قالب از فناوری‌های استاندارد فرانت‌اند (HTML5, CSS3, JS) استفاده می‌کند، به هیچ سرور بک‌اند، دیتابیس SQL یا سرور Node.js برای اجرا نیاز ندارد و روی <strong>ارزان‌ترین هاست‌های اشتراکی لینوکس یا ویندوز</strong>، هاست رایگان گیتهاب (GitHub Pages) و سرورهای شخصی در کمتر از ۲ دقیقه بالا می‌آید.
+    </p>
+
+    <h3>مراحل آپلود در سی‌پنل (cPanel) یا دایرکت‌ادمین (DirectAdmin):</h3>
+    <ol>
+      <li>وارد کنترل پنل هاست خود شوید و به بخش <strong>File Manager</strong> بروید.</li>
+      <li>پوشه <code>public_html</code> (یا پوشه دامنه/ساب‌دامین مورد نظرتان) را باز کنید.</li>
+      <li>فایل فشرده <strong><code>nova-ecommerce.zip</code></strong> را در آنجا آپلود کنید.</li>
+      <li>روی فایل کلیک راست کرده و گزینه <strong>Extract</strong> را بزنید تا فایل‌ها از حالت فشرده خارج شوند.</li>
+      <li>مطمئن شوید که فایل <code>index.html</code> مستقیماً درون ریشه <code>public_html</code> قرار گرفته باشد (نه درون یک پوشه فرعی).</li>
+      <li>آدرس دامنه خود را در مرورگر باز کنید؛ وب‌سایت آماده استفاده است!</li>
+    </ol>
+
+    <div class="success-box">
+      <strong>اجرای آفلاین روی سیستم:</strong> شما می‌توانید حتی بدون اینترنت، روی فایل <code>index.html</code> در کامپیوتر خود دابل‌کلیک کنید تا وب‌سایت به صورت کامل و با تمام امکانات باز شود.
+    </div>
+
+    <!-- 5. LOCAL ASSETS -->
+    <h2>۳. سیستم تصاویر و استقلال کامل از سرورهای خارجی</h2>
+    <p>
+      یکی از مهم‌ترین چالش‌های وب‌سایت‌های ارائه‌شده در مارکت‌های ایرانی، لود نشدن تصاویر به علت فیلترینگ یا قطعی سرورهای عکس خارجی (مانند Unsplash) است.
+    </p>
+    <div class="box">
+      <div class="box-title">✅ تصاویر کاملاً محلی (Local):</div>
+      <p>
+        در نسخه فعلی قالب نُوا، تمامی تصاویر محصولات، بنرها، استوری‌ها و آیکون‌ها به صورت فیزیکی دانلود شده و در مسیر <code>assets/images/site/</code> قرار گرفته‌اند. هیچ تصویری از سرورهای تحریم‌شده یا فیلترشده لود نمی‌شود و حتی در صورت ملی شدن اینترنت یا مسدودیت‌ها، سایت با بالاترین سرعت و بدون کوچک‌ترین افت کیفیتی کار خواهد کرد.
+      </p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 6. 32 PAGES DIRECTORY -->
+    <h2>۴. اطلس صفحات (راهنمای جامع ۳۲ صفحه قالب)</h2>
+    <p>
+      قالب نُوا دارای ۳۲ صفحه کامپوننت‌بندی شده و مرتبط به هم است که هیچ لینک مرده‌ای (مانند <code>#</code>) در آنها وجود ندارد:
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 50px;">ردیف</th>
+          <th style="width: 170px;">نام فایل</th>
+          <th style="width: 160px;">عنوان صفحه</th>
+          <th>کارکرد و بخش‌های کلیدی</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>۱</td>
+          <td><code>index.html</code></td>
+          <td>صفحه اصلی (Home)</td>
+          <td>هیرو اسلایدر، استوری‌های متحرک، حراج شگفت‌انگیز با تایمر ثانیه‌شمار، شوکیس ۳زاویه‌ای کالا و مقالات برگزیده.</td>
+        </tr>
+        <tr>
+          <td>۲</td>
+          <td><code>shop.html</code></td>
+          <td>فروشگاه و آرشیو</td>
+          <td>فیلتر قیمت چندلایه، فیلتر رنگ و سایز، تعویض چیدمان گرید/لیست، مرتب‌سازی و صفحه‌بندی هوشمند.</td>
+        </tr>
+        <tr>
+          <td>۳</td>
+          <td><code>product.html</code></td>
+          <td>صفحه محصول (PDP)</td>
+          <td>گالری چندعکس با زوم، انتخابگر رنگ و سایز، نوار خرید چسبان هنگام اسکرول (Sticky Bar) و کالاهای مکمل.</td>
+        </tr>
+        <tr>
+          <td>۴</td>
+          <td><code>collections.html</code></td>
+          <td>کالکشن‌های فصلی</td>
+          <td>نمایش ۵ کالکشن مفهومی با فیلتر اتمسفر و مود، کارت‌های هاور لوکس و تخفیف‌های ست.</td>
+        </tr>
+        <tr>
+          <td>۵</td>
+          <td><code>collection-details.html</code></td>
+          <td>جزئیات کالکشن</td>
+          <td>رندر پویا بر اساس URL، پالت متریال اثر، بیانیه طراح و دکمه خرید یکجای کل آیتم‌های ست.</td>
+        </tr>
+        <tr>
+          <td>۶</td>
+          <td><code>brands.html</code></td>
+          <td>طراحان و برندها</td>
+          <td>ایندکس الفبایی دو زبانه (الف تا ی و A-Z)، جستجوی زنده برندها بدون رفرش و معرفی طراح برتر.</td>
+        </tr>
+        <tr>
+          <td>۷</td>
+          <td><code>lookbook.html</code></td>
+          <td>لوک‌بوک تعاملی</td>
+          <td>چیدمان مجله‌ای با پین‌های طلایی تپ‌شونده (Hotspots) روی لباس مدل‌ها و دکمه خرید سریع ست.</td>
+        </tr>
+        <tr>
+          <td>۸</td>
+          <td><code>gift-card.html</code></td>
+          <td>کارت هدیه اختصاصی</td>
+          <td>پیش‌نمایش گرافیکی زنده با ۴ پوسته نفیس (طلایی، ابسیدیان، زمردی، رز) و صدور آنی به سبد خرید.</td>
+        </tr>
+        <tr>
+          <td>۹</td>
+          <td><code>size-guide.html</code></td>
+          <td>راهنمای سایز هوشمند</td>
+          <td>جدول تبدیل استاندارد بین‌المللی با سوئیچ سانتی‌متر/اینچ، راهنمای مصور و ماشین‌حساب سایزیاب.</td>
+        </tr>
+        <tr>
+          <td>۱۰</td>
+          <td><code>shipping-returns.html</code></td>
+          <td>ارسال و مرجوعی</td>
+          <td>تایم‌لاین مصور ۵ مرحله‌ای بازگشت کالا، محاسبه هزینه‌های ارسال و شرایط ضمانت هفت‌روزه.</td>
+        </tr>
+        <tr>
+          <td>۱۱</td>
+          <td><code>faq.html</code></td>
+          <td>مرکز پرسش‌های متداول</td>
+          <td>دسته‌بندی موضوعی، جستجوی بلادرنگ در متن سوالات و پاسخ‌ها، و باز شدن نرم آکاردئونی.</td>
+        </tr>
+        <tr>
+          <td>۱۲</td>
+          <td><code>cart.html</code></td>
+          <td>سبد خرید اصلی</td>
+          <td>کنترل تعداد اقلام، نوار پویا برای رسیدن به سقف ارسال رایگان، ثبت کوپن تخفیف و مالیات.</td>
+        </tr>
+        <tr>
+          <td>۱۳</td>
+          <td><code>checkout.html</code></td>
+          <td>تسویه حساب نهایی</td>
+          <td>فرم اطلاعات خریدار با اعتبارسنجی ارگونومیک، انتخاب شیوه ارسال و درگاه پرداخت.</td>
+        </tr>
+        <tr>
+          <td>۱۴</td>
+          <td><code>orders.html</code></td>
+          <td>سوابق سفارش‌ها</td>
+          <td>جدول تاریخچه سفارشات به تفکیک وضعیت (تحویل شده، در حال پردازش) و لینک به فاکتور رسمی.</td>
+        </tr>
+        <tr>
+          <td>۱۵</td>
+          <td><code>order-details.html</code></td>
+          <td>فاکتور رسمی خرید</td>
+          <td>نمایش کامل بارنامه، کد رهگیری، تایم‌لاین ارسال و کلید پرینت استاندارد فاکتور.</td>
+        </tr>
+        <tr>
+          <td>۱۶</td>
+          <td><code>addresses.html</code></td>
+          <td>دفترچه آدرس‌ها</td>
+          <td>مدیریت کامل افزودن، ویرایش و حذف نشانی‌ها در حافظه مرورگر و انتخاب آدرس پیش‌فرض.</td>
+        </tr>
+        <tr>
+          <td>۱۷</td>
+          <td><code>notifications.html</code></td>
+          <td>مرکز پیام‌ها</td>
+          <td>صندوق پیام با فیلتر موضوعی (سفارش‌ها، باشگاه مشتریان)، نشانگر خوانده‌نشده و حذف اعلان.</td>
+        </tr>
+        <tr>
+          <td>۱۸</td>
+          <td><code>recently-viewed.html</code></td>
+          <td>بازدیدهای اخیر</td>
+          <td>فهرست اقلامی که کاربر مشاهده کرده با امکان حذف تکی یا پاکسازی کلی سابقه.</td>
+        </tr>
+        <tr>
+          <td>۱۹</td>
+          <td><code>wishlist.html</code></td>
+          <td>لیست علاقه‌مندی‌ها</td>
+          <td>نمایش محصولات لایک‌شده با انیمیشن تپ قلب و انتقال مستقیم کالاها به سبد خرید.</td>
+        </tr>
+        <tr>
+          <td>۲۰</td>
+          <td><code>compare.html</code></td>
+          <td>مقایسه فنی کالاها</td>
+          <td>جدول ماتریسی مقایسه همزمان ۴ محصول از نظر جنس، ابعاد، گارانتی و قیمت.</td>
+        </tr>
+        <tr>
+          <td>۲۱</td>
+          <td><code>tracking.html</code></td>
+          <td>پیگیری مرسوله پستی</td>
+          <td>سامانه رهگیری زنده با وارد کردن شماره سفارش، تایم‌لاین ۵ مرحله‌ای متحرک گزارش سفیر.</td>
+        </tr>
+        <tr>
+          <td>۲۲</td>
+          <td><code>account.html</code></td>
+          <td>داشبورد کاربری</td>
+          <td>کارت‌های آمار خرید، امتیاز نُوا کلاب، آخرین وضعیت‌ها و منوی دسترسی سریع به پنل.</td>
+        </tr>
+        <tr>
+          <td>۲۳</td>
+          <td><code>login.html</code></td>
+          <td>ورود به حساب</td>
+          <td>فرم شکیل ورود با اعتبارسنجی شماره موبایل ایران، کلید نمایش رمز و حفظ وضعیت ورود.</td>
+        </tr>
+        <tr>
+          <td>۲۴</td>
+          <td><code>register.html</code></td>
+          <td>عضویت جدید</td>
+          <td>فرم ثبت‌نام همراه با تخفیف عضویت، شرایط و قوانین و اتصال مستقیم به پنل.</td>
+        </tr>
+        <tr>
+          <td>۲۵</td>
+          <td><code>search.html</code></td>
+          <td>نتایج جستجو</td>
+          <td>صفحه اختصاصی نمایش محصولات جستجو شده با برچسب‌های متداول و حالت عدم یافتن کالا.</td>
+        </tr>
+        <tr>
+          <td>۲۶</td>
+          <td><code>blog.html</code></td>
+          <td>ژورنال استایل و مد</td>
+          <td>مقالات تخصصی ترندهای پوشاک، تاریخچه پارچه‌ها، فیلتر دسته‌بندی و مقالات داغ.</td>
+        </tr>
+        <tr>
+          <td>۲۷</td>
+          <td><code>blog-details.html</code></td>
+          <td>صفحه متن مقاله</td>
+          <td>تایپوگرافی ادیتوریال چشم‌نواز، گالری عکس بین متنی، باکس نویسنده و فرم ثبت دیدگاه.</td>
+        </tr>
+        <tr>
+          <td>۲۸</td>
+          <td><code>about.html</code></td>
+          <td>درباره و داستان برند</td>
+          <td>مانیفست نُوا، عکس‌های شوروم و آتلیه، آمار رضایت مشتریان و معرفی دست‌اندرکاران.</td>
+        </tr>
+        <tr>
+          <td>۲۹</td>
+          <td><code>contact.html</code></td>
+          <td>تماس با ما</td>
+          <td>آدرس و نقشه شوروم‌ها، ساعات کاری، فرم ارسال پیام و پشتیبانی تلفنی.</td>
+        </tr>
+        <tr>
+          <td>۳۰</td>
+          <td><code>privacy.html</code></td>
+          <td>حریم خصوصی</td>
+          <td>شرایط محافظت از داده‌های کاربران، امنیت پرداخت‌ها و خط‌مشی شفاف ذخیره‌سازی.</td>
+        </tr>
+        <tr>
+          <td>۳۱</td>
+          <td><code>terms.html</code></td>
+          <td>قوانین و مقررات</td>
+          <td>قوانین خرید، حق انصراف هفت روزه، رویه‌های استرداد وجه و شرایط ارسال کالا.</td>
+        </tr>
+        <tr>
+          <td>۳۲</td>
+          <td><code>404.html</code></td>
+          <td>صفحه خطای ۴۰۴</td>
+          <td>طراحی ارگونومیک با دکمه بازگشت به صفحه اصلی، باکس جستجو و دسته‌بندی‌های محبوب.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- 7. CUSTOMIZATION GUIDE -->
+    <h2>۵. راهنمای شخصی‌سازی (Customization)</h2>
+    <p>
+      تمامی تنظیمات ظاهری، رنگ‌بندی و فواصل به صورت ساختاریافته در فایل <code>assets/css/variables.css</code> قرار گرفته‌اند و شما می‌توانید بدون دست زدن به خطوط پیچیده، کل قالب را برندسازی کنید.
+    </p>
+
+    <h3>تغییر رنگ سازمانی و رنگ طلایی شامپاینی:</h3>
+    <p>فایل <code>assets/css/variables.css</code> را باز کنید و مقادیر زیر را به رنگ دلخواه خود تغییر دهید:</p>
+    <pre><code>:root {
+  /* رنگ اصلی لهجه (طلایی شامپاینی پیش‌فرض) */
+  --accent: #B08D57;
+  --accent-hover: #967440;
+  --accent-light: #F4EFE6;
+  
+  /* فونت‌های قالب */
+  --font-body: 'Vazirmatn', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}</code></pre>
+
+    <h3>تغییر لوگو و نام برند:</h3>
+    <ul>
+      <li><strong>لوگوی برداری (SVG):</strong> در پوشه <code>assets/images/logo.svg</code> فایل وکتور لوگوی خود را با همین نام جایگزین کنید.</li>
+      <li><strong>تغییر متنی:</strong> در هدر تمام فایل‌های HTML، تگ لینک لوگو با عبارت <code>NOVA</code> قرار دارد که می‌توانید نام برند خود را در آن بنویسید.</li>
+    </ul>
+
+    <!-- 8. PRODUCTS DATA MANAGEMENT -->
+    <h2>۶. مدیریت محصولات (پایگاه داده متمرکز <code>products.js</code>)</h2>
+    <p>
+      تمامی محصولات فروشگاه نُوا به صورت داینامیک از فایل <code>assets/js/products.js</code> خوانده می‌شوند. برای تغییر قیمت‌ها، نام محصولات یا افزودن کالای جدید، کافی است این فایل را ویرایش کنید:
+    </p>
+
+    <pre><code>{
+  id: 1,
+  title: "پالتو پشمی دست‌دوز نُوا",
+  brand: "NOVA Atelier",
+  category: "clothing",
+  price: 4850000,           // قیمت پس از تخفیف به تومان
+  originalPrice: 5800000,   // قیمت قبل تخفیف (برای خط خوردن)
+  rating: 4.9,
+  reviewsCount: 38,
+  inStock: true,
+  images: [
+    "assets/images/site/photo-1539571696357.jpg",
+    "assets/images/site/photo-1515886657613.jpg"
+  ],
+  colors: [
+    { name: "شامپاینی", hex: "#C8AD7F" },
+    { name: "مشکی ذغالی", hex: "#1F1F1F" }
+  ],
+  sizes: ["S", "M", "L", "XL"],
+  badge: "پرفروش",
+  description: "توضیحات کامل محصول در این بخش قرار می‌گیرد..."
+}</code></pre>
+
+    <div class="box">
+      <div class="box-title">💡 اتصال به بک‌اند واقعی (PHP, Node.js, Python, Laravel):</div>
+      <p>
+        اگر خریدار شما قصد داشته باشد این قالب را به وردپرس یا یک بک‌اند اختصاصی متصل کند، کافی است به جای آرایه محصولات داخل <code>products.js</code>، تابع <code>fetch('/api/products')</code> را صدا بزند؛ ساختار دیتای پروژه کاملاً با خروجی استاندارد JSON مطابقت دارد.
+      </p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 9. DIRECTORY TREE -->
+    <h2>۷. ساختار پوشه‌ها و معماری فایل‌ها</h2>
+    <div class="file-tree">
+<span class="dir">nova-ecommerce/</span>
+├── <span class="file">index.html</span>                 <span class="comment"># صفحه نخست فروشگاه</span>
+├── <span class="file">shop.html</span>                  <span class="comment"># کاتالوگ و فیلترهای محصولات</span>
+├── <span class="file">product.html</span>               <span class="comment"># صفحه محصول تکی</span>
+├── <span class="file">cart.html</span>                  <span class="comment"># صفحه سبد خرید</span>
+├── <span class="file">checkout.html</span>              <span class="comment"># تسویه حساب نهایی</span>
+├── <span class="file">account.html</span>               <span class="comment"># داشبورد کاربری</span>
+├── <span class="file">... (سایر ۲۶ صفحه HTML)</span>
+├── <span class="file">nova-ecommerce.zip</span>         <span class="comment"># پکیج فشرده و آماده آپلود روی هاست</span>
+└── <span class="dir">assets/</span>
+    ├── <span class="dir">css/</span>
+    │   ├── <span class="file">variables.css</span>          <span class="comment"># رنگ‌ها، متغیرها و فونت‌ها</span>
+    │   ├── <span class="file">layout.css</span>             <span class="comment"># چیدمان گرید و ساختار کلی</span>
+    │   ├── <span class="file">components.css</span>         <span class="comment"># کارت‌ها، دکمه‌ها و منوها</span>
+    │   ├── <span class="file">animations.css</span>         <span class="comment"># انیمیشن‌ها و ترنزیشن‌ها</span>
+    │   └── <span class="file">responsive.css</span>         <span class="comment"># استایل‌های تبلت و موبایل</span>
+    ├── <span class="dir">images/</span>
+    │   ├── <span class="file">logo.svg</span>               <span class="comment"># لوگوی برداری برند</span>
+    │   └── <span class="dir">site/</span>                  <span class="comment"># تمام تصاویر محلی محصولات و بنرها</span>
+    └── <span class="dir">js/</span>
+        ├── <span class="file">products.js</span>            <span class="comment"># دیتابیس محصولات</span>
+        ├── <span class="file">cart.js</span>                <span class="comment"># موتور سبد خرید و مینی‌کارت</span>
+        ├── <span class="file">stories.js</span>             <span class="comment"># موتور استوری‌های اینستاگرامی</span>
+        ├── <span class="file">wishlist.js</span>            <span class="comment"># لیست علاقه‌مندی‌ها</span>
+        ├── <span class="file">ui.js</span>                  <span class="comment"># دارک‌مود، منوی موبایل و انیمیشن‌ها</span>
+        └── <span class="file">app.js</span>                 <span class="comment"># هسته راه‌انداز برنامه</span>
+    </div>
+
+    <!-- 10. SELLING TIPS -->
+    <h2>۸. چک‌لیست و نکات طلایی برای فروش قالب</h2>
+    <div class="box">
+      <div class="box-title">چگونه این قالب را با بالاترین قیمت بفروشید؟</div>
+      <ol>
+        <li><strong>عنوان جذاب برای آگهی یا محصول:</strong><br>
+        «قالب HTML5 فروشگاهی فوق‌لوکس نُوا (NOVA) — دارای ۳۲ صفحه، استوری اینستاگرامی، دارک‌مود و تصاویر ۱۰۰٪ لوکال بدون نیاز به اینترنت خارجی»</li>
+        <li><strong>ارائه نسخه دمو آنلاین:</strong> قالب را روی یک هاست یا ساب‌دامین رایگان بالا بیاورید تا مشتری بتواند پیش‌نمایش زنده آن را ببیند و سرعت فوق‌العاده آن را لمس کند.</li>
+        <li><strong>تأکید روی ۳۲ صفحه بودن:</strong> اکثر قالب‌های موجود در مارکت‌ها تنها ۵ تا ۱۰ صفحه دارند؛ اشاره به ۳۲ صفحه بودن (شامل پیگیری مرسوله تیپاکس، دفترچه آدرس، کارت هدیه و لوک‌بوک) ارزش کار شما را متمایز می‌کند.</li>
+        <li><strong>فایل PDF همین راهنما:</strong> همین صفحه را با کلید <code>Ctrl + P</code> به عنوان PDF ذخیره کرده و درون پوشه دانلودی خریدار قرار دهید تا حس خرید از یک شرکت بسیار حرفه‌ای به مشتری منتقل شود.</li>
+      </ol>
+    </div>
+
+    <!-- 11. FAQ -->
+    <h2>۹. پرسش‌های متداول خریداران (FAQ)</h2>
+    
+    <h3>۱. آیا قالب برای اجرا به اینترنت یا فیلترشکن نیاز دارد؟</h3>
+    <p>خیر؛ تمامی فونت‌ها، اسکریپت‌ها و تصاویر به صورت محلی در خود پروژه قرار دارند و سایت حتی در حالت کاملاً آفلاین یا اینترنت ملی بدون کوچک‌ترین نقصی کار می‌کند.</p>
+
+    <h3>۲. آیا می‌توان این قالب را به وردپرس یا ووکامرس تبدیل کرد؟</h3>
+    <p>بله؛ کدهای HTML5 با ساختار استاندارد سمانتیک (Semantic) نوشته شده‌اند و کلاس‌های تفکیک‌شده دارند، بنابراین هر برنامه‌نویس وردپرس می‌تواند در کمترین زمان آن را به پوسته ووکامرس تبدیل کند.</p>
+
+    <h3>۳. چطور اطلاعات تماس و پیوندهای شبکه‌های اجتماعی را عوض کنم؟</h3>
+    <p>در فایل‌های <code>contact.html</code> و همچنین بخش فوتر در انتهای تمام صفحات، آدرس تلفن، ایمیل و لینک‌های تلگرام/اینستاگرام با آیکون‌های SVG قرار دارند که به راحتی قابل تغییر هستند.</p>
+
+    <div style="text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px;">
+      طراحی و مهندسی شده با استانداردهای مدرن فرانت‌اند • تمامی حقوق محفوظ است © نُوا
+    </div>
+
+  </div>
+
+</body>
+</html>
